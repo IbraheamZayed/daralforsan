@@ -1,0 +1,475 @@
+﻿@using System.Text.RegularExpressions;
+@model ViewModels.Form.HomeVM
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_ExternalLayout.cshtml";
+
+    var monthsAr = new List<string> { "يناير", "فبراير", "مارس", "ابريل", "مايو", "يونيه", "يوليه", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر" };
+    var monthsEn = new List<string> { "January", "Febuary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
+
+    string extractContent(string htmlString)
+    {
+        return Regex.Replace(htmlString, @"<(.|\n)*?>", "");
+    }
+}
+
+<style>
+    input.input-validation-error {
+        border: 1px solid #e80c4d;
+    }
+</style>
+
+<section class="owl-carousel owl-theme owl-index">
+    @foreach (var item in Model.Sliders)
+    {
+        <div class="item">
+            <div class="imgSlider text-center" style="background-image: url(/FileStorage/@item.Img)">
+                <aside>
+                    <h1 class="mb-10">
+                        مدارس دار الفرسان
+                    </h1>
+                    <h2 class="font-18 mb-10">@(Core.UI.Locals.IsLocal ? item.TitleAr : item.TitleEn)</h2>
+                    <p>@(Core.UI.Locals.IsLocal ? extractContent(item.DetailsAr) : extractContent(item.DetailsEn))</p>
+                    <!-- <a href="" data-link="ConnectUs" class="btn-main mb-0">تواصل معنا</a> -->
+                </aside>
+            </div>
+        </div>
+    }
+    @* <div class="item">
+    <div class="imgSlider text-center" style="background-image: url(/imgs/slider-light-slide-1-1920x776.jpg)">
+    <aside>
+    <h1 class="mb-10">
+    مدارس دار الفرسان</h2>
+    <h2 class="font-18 mb-10">تمكين اليوم، مستقبل الغد</h2>
+    <p> تعمل المؤسسة على الأخذ بيد الشباب في أنحاء البلاد، وتوفير الوسائل المختلفة لرعاية المواهب والطاقات الإبداعية وتمكينها، وخلق البيئة الصحية لنموها والدفع بها لترى النور</p>
+    <!-- <a href="" data-link="ConnectUs" class="btn-main mb-0">تواصل معنا</a> -->
+    </aside>
+    </div>
+
+
+    <!-- <div class="info_owl_index">
+    <img src="imgs/bg_home.svg">
+    <aside>
+    <h2 class="mb-10">مدارس دار الفرسان</h2>
+    <div class="font-18 mb-10">تمكين اليوم، مستقبل الغد</div>
+    <p> تعمل المؤسسة على الأخذ بيد الشباب في أنحاء البلاد، وتوفير الوسائل المختلفة لرعاية المواهب والطاقات الإبداعية وتمكينها، وخلق البيئة الصحية لنموها والدفع بها لترى النور</p>
+    <a href="" data-link="ConnectUs" class="btn-main mb-0">تواصل معنا</a>
+    </aside>
+    </div> -->
+    </div>
+    <div class="item">
+    <div class="imgSlider text-center" style="background-image: url(/imgs/slider-light-slide-2-1920x776.jpg)">
+    <aside>
+    <h1 class="mb-10">
+    مدارس دار الفرسان</h2>
+    <h2 class="font-18 mb-10">تمكين اليوم، مستقبل الغد</h2>
+    <p> تعمل المؤسسة على الأخذ بيد الشباب في أنحاء البلاد، وتوفير الوسائل المختلفة لرعاية المواهب والطاقات الإبداعية وتمكينها، وخلق البيئة الصحية لنموها والدفع بها لترى النور</p>
+    <!-- <a href="" data-link="ConnectUs" class="btn-main mb-0">تواصل معنا</a> -->
+    </aside>
+    </div>
+
+
+    <!-- <div class="info_owl_index">
+    <img src="imgs/bg_home.svg">
+    <aside>
+    <h2 class="mb-10">مدارس دار الفرسان</h2>
+    <div class="font-18 mb-10">تمكين اليوم، مستقبل الغد</div>
+    <p> تعمل المؤسسة على الأخذ بيد الشباب في أنحاء البلاد، وتوفير الوسائل المختلفة لرعاية المواهب والطاقات الإبداعية وتمكينها، وخلق البيئة الصحية لنموها والدفع بها لترى النور</p>
+    <a href="" data-link="ConnectUs" class="btn-main mb-0">تواصل معنا</a>
+    </aside>
+    </div> -->
+    </div> *@
+</section>
+
+<section class="sec-padd" id="About_academy">
+    <div class="container">
+        <div class="the_Title wow zoomIn">@DBResources.AboutSchool.PageTitle <span></span></div>
+        <div class="row">
+            @foreach (var item in Model.AboutSchool)
+            {
+                <div class="col-lg-6">
+                    <div class="infoBoxAbout wow zoomIn">
+                        <div class="titile_2"><img src="~/FileStorage/@item.Logo">@(Core.UI.Locals.IsLocal ? item.AddressAr : item.AddressEn)</div>
+                        <p>
+                            @(Core.UI.Locals.IsLocal ? extractContent(item.DetailsAr) : extractContent(item.DetailsEn))
+                        </p>
+                    </div>
+                </div>
+            }
+            @* <div class="col-lg-6">
+            <div class="infoBoxAbout wow zoomIn">
+            <div class="titile_2"><img src="~/imgs/logo.png"> الاهداف</div>
+            <p>
+            أَسست مدارس دار الفرسانعبر عدة سنوات منذ عام 2012 منظومة ومنصات تعليمية متقدمة ومتكاملة وكونت تحالف من الشراكات الاستراتيجية العالمية لتقديم أرقى الخدمات التعليمية لشركائها، حتى أصبحت بحمد الله أحد رواد تقنيات التعليم عالمياً انطلاقاً من وادي السيليكون في أمريكا إلى قلب الشرق الأوسط وصولاً إلى أقاصي شرق آسيا، ويشهد على ذلك حصدها للعديد من الجوائز العالمية المتخصصة في مجال ابتكارات التعليم، حيث وصلت مدارس دار الفرسانفي رحلتها إلى أكثر من 30 دولة حول العالم، وأكثر من مليون مستخدم، وحازت في مشوارها على ثقة الكثير من الحكومات والمنشآت التعليمية والتدريبية المختلفة.
+            </p>
+            </div>
+            </div>
+            <div class="col-lg-6">
+            <div class="infoBoxAbout wow zoomIn">
+            <div class="titile_2"><img src="~/imgs/logo.png"> الرسالة</div>
+            <p>
+            أَسست مدارس دار الفرسانعبر عدة سنوات منذ عام 2012 منظومة ومنصات تعليمية متقدمة ومتكاملة وكونت تحالف من الشراكات الاستراتيجية العالمية لتقديم أرقى الخدمات التعليمية لشركائها، حتىأن نكون الأفضل عالمياً في ابتكار حلول تقنية ذكية ومؤثرة وملهمة ، لتطوير وتسهيل وإثراء التعلّم.
+            </p>
+            </div>
+            </div>
+            <div class="col-lg-6">
+            <div class="infoBoxAbout wow zoomIn">
+            <div class="titile_2"><img src="~/imgs/logo.png"> كلمة مجلس الاداره</div>
+            <p>
+            في مدارس دار الفرسانعائلة مميزة يجمعها شغف خدمة التعلم، والتدريب،بأحدث وآخر ما توصلت إليه التقنية، عائلة مترابطة تسعى دائماً إلى تقديم كل ما هو جديد ومميز ومتطور وملهم من حلول تعليمية، حيث تشترك عائلة مدارس دار الفرسانفي السعي إلى تحقيق أهداف ورؤى الشركة وهم على يقين تام بها، إلا أنهم يختلفون في الاهتمامات والأنشطة فلكل منا شيء يفضله يرغب بممارسته في وقت ما. لذا وفرت مدارس دار الفرسان بيئة عمل جاذبة من شأنها تشجيع عمليات التفاعل بين الفريق وخلق أجواء المشاركة في اهتماماتهم على اختلاف أنوعها، يقيناً منا بأن الموظف يستحق أن يحظى بالسعادة في مكان عمله.
+            </p>
+            </div>
+            </div>
+            <div class="col-lg-6">
+            <div class="infoBoxAbout wow zoomIn">
+            <div class="titile_2"><img src="~/imgs/logo.png"> كلمة الهيئة التعليمية</div>
+            <p>
+            تمكين كل فرد من الوصول لأعلى إمكانياته بأبسط طريقة ممكنه عبر استخدام أفضل حلول التعلّم المبتكرة والملهمة.
+            </p>
+            </div>
+            </div> *@
+        </div>
+    </div>
+</section>
+
+<section class="sec-padd" id="Academy_system">
+    <div class="container">
+        <div class="the_Title wow zoomIn">@DBResources.SchoolSystem.PageTitle <span></span></div>
+        <div class="row align-items-center flex-wrap-reverse">
+            <div class="col-lg-7">
+                <div>
+                    @foreach (var item in Model.SchoolSystem)
+                    {
+                        <div class="mb-20 wow fadeInDown">
+                            <div class="titile_2"><img src="~/imgs/logo.png"> @(Core.UI.Locals.IsLocal ? item.TitleAr : item.TitleEn)</div>
+                            <p>
+                                @(Core.UI.Locals.IsLocal ? extractContent(item.MessageAr) : extractContent(item.MessageEn))
+                            </p>
+                        </div>
+                    }
+                    @* <div class="mb-20 wow fadeInDown">
+                    <div class="titile_2"><img src="~/imgs/logo.png"> رؤيتنا</div>
+                    <p>
+                    دار الفرسان مدرسة ثنائية اللغة تعتمد على بناء طفل متوازن فى اتقانه لمهارات اللغة العربية والانجليزية معا نؤمن بالنظرة الشمولية والمتوازنة بين التحصيل الأكاديمى والبناء الفكرى وتطوير الشخصية لدى طلبتنا ونعتبرها احد أهم مرتكزاتنا واهتمامنا , لذا أفردنا جزءا من مناهجنا لتنمية الحس الجمالى وكيفية تذوق القيم الفنية من خلال تدريب الحواس على الاستخدام غير المحدود والاتجاه للابتكار والإبداع إضافة إلى اهتمامنا بالتربية البدنية التى ترفع من مستوى الطلبة للتعلم , من خلال تنمية وتطوير قدراتهم واستعداداتهم ومواهبهم وميولهم واتجاهاتهم المختلفة وبناء شخصيتهم.
+                    </p>
+                    </div>
+                    <div class="mb-20 wow fadeInDown">
+                    <div class="titile_2"><img src="~/imgs/logo.png"> لماذا دار الفرسان</div>
+                    <p>
+                    دار الفرسان مدرسة ثنائية اللغة تعتمد على بناء طفل متوازن فى اتقانه لمهارات اللغة العربية والانجليزية معا نؤمن بالنظرة الشمولية والمتوازنة بين التحصيل الأكاديمى والبناء الفكرى وتطوير الشخصية لدى طلبتنا ونعتبرها احد أهم مرتكزاتنا واهتمامنا , لذا أفردنا جزءا من مناهجنا لتنمية الحس الجمالى وكيفية تذوق القيم الفنية من خلال تدريب الحواس على الاستخدام غير المحدود والاتجاه للابتكار والإبداع إضافة إلى اهتمامنا بالتربية البدنية التى ترفع من مستوى الطلبة للتعلم , من خلال تنمية وتطوير قدراتهم واستعداداتهم ومواهبهم وميولهم واتجاهاتهم المختلفة وبناء شخصيتهم.
+                    </p>
+                    </div> *@
+
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="oute_img_vis wow jackInTheBox">
+                    <div>
+                        <img src="~/imgs/thumbnail_Artboard 1 copy 6 (2).png">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sec-padd" id="statistics">
+    <div class="container">
+        <div class="the_Title wow zoomIn">@DBResources.Statistics.PageTitle <span></span></div>
+        <div class="row">
+            @foreach (var item in Model.Statistics)
+            {
+                <div class="col-lg-3 col-md-4 col-6">
+                    <div class="item_statistics wow fadeInDown">
+                        <img src="~/FileStorage/@item.Img">
+                        <h6 class="counter">@item.Count</h6>
+                        <div>@(Core.UI.Locals.IsLocal ? item.TitleAr : item.TitleEn)</div>
+                    </div>
+                </div>
+            }
+            @* <div class="col-lg-3 col-md-4 col-6">
+            <div class="item_statistics wow fadeInDown">
+            <img src="~/imgs/count1.png">
+            <h6 class="counter">3000</h6>
+            <div>عدد الطلاب</div>
+            </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-6">
+            <div class="item_statistics wow fadeInUp">
+            <img src="~/imgs/count2.png">
+            <h6 class="counter">21</h6>
+            <div>الفصول</div>
+            </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-6">
+            <div class="item_statistics wow fadeInDown">
+            <img src="~/imgs/count3.png">
+            <h6 class="counter">500</h6>
+            <div>المعلمين</div>
+            </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-6">
+            <div class="item_statistics wow fadeInUp">
+            <img src="~/imgs/count4.png">
+            <h6 class="counter">1000</h6>
+            <div>المستفيدين</div>
+            </div>
+            </div> *@
+        </div>
+    </div>
+</section>
+
+<section class="sec-padd" id="news">
+    <div class="container">
+        <div class="the_Title wow zoomIn">@DBResources.News.PageTitle <span></span></div>
+        <div class="row">
+            @foreach (var item in Model.News)
+            {
+                <div class="col-lg-4 col-md-6 ">
+                    <div class="box_news wow zoomIn">
+                        <div class="po_R the_img">
+                            <img src="~/FileStorage/@item.MainImg">
+                            <div class="info_1">
+                                @*<div>
+                            <i class="fas fa-eye"></i>
+                            <aside>@item.ViewsCount</aside>
+                            </div>
+                            <div>
+                            <i class="fas fa-comment"></i>
+                            <aside>0</aside>
+                            </div>*@
+                            </div>
+                            <div class="date_info">
+                                <p>@(Core.UI.Locals.IsLocal ? monthsAr[item.AddDate.Value.Month - 1] : monthsEn[item.AddDate.Value.Month - 1])</p>
+                                <p>@item.AddDate.Value.Day</p>
+                                <p>@item.AddDate.Value.Year</p>
+                            </div>
+                        </div>
+                        <div class="p-3">
+                            <div class="small">@DBResources.News.PageTitle</div>
+                            <div>
+                                <h5 class="f-b">@(Core.UI.Locals.IsLocal ? item.TitleAr : item.TitleEn)</h5>
+                                <p class="discrip">@(Core.UI.Locals.IsLocal ? extractContent(item.DetailsAr) : extractContent(item.DetailsEn))</p>
+                            </div>
+                            @*                            <div class="text-left mt-2 main-color f-b"><a href="news-details.html" class="under-line">@DBResources.News.Details..</a></div>
+                        *@
+                        </div>
+                    </div>
+                </div>
+            }
+            @* <div class="col-lg-4 col-md-6 ">
+            <div class="box_news wow zoomIn">
+            <div class="po_R the_img">
+            <img src="~/imgs/PhoNN_3650_112020311849391.jpg">
+            <div class="info_1">
+            <div>
+            <i class="fas fa-eye"></i>
+            <aside>222</aside>
+            </div>
+            <div>
+            <i class="fas fa-comment"></i>
+            <aside>0</aside>
+            </div>
+            </div>
+            <div class="date_info">
+            <p>يناير</p>
+            <p>05</p>
+            <p>2022</p>
+            </div>
+            </div>
+            <div class="p-3">
+            <div class="small">الاخبار</div>
+            <div>
+            <h5 class="f-b">مدارس دار الفرسان للتعلم الذكي الشريك</h5>
+            <p class="discrip">استكمالاً لرسالة مدارس دار الفرسان في نشر العلم والتعلم بأحدث الأساليب التعليمية وأكثرها سهولة ويسراً، وقعت مدارس دار الفرسان للتعلم الذكي عقد شراكة استراتيجية مع جمعية المحافظة على القرآن الكريم في الأردن بهدف إتاحة الفرصة لمنتسبي الجمعية من طلبة ومعلمين للاستفادة من خدمات منصة مدارس دار الفرسان التعليمية، وذلك بحضور المدير العام للجمعية الأستاذ حسين عسّاف والرئيس التنفيذي لشركة مدارس دار الفرسانالمهندس محمّد المدني.</p>
+            </div>
+            <div class="text-left mt-2 main-color f-b"><a href="news-details.html" class="under-line">التفاصيل..</a></div>
+            </div>
+            </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+            <div class="box_news wow zoomIn">
+            <div class="po_R the_img">
+            <img src="~/imgs/PhoNN_3650_122020311849392.jpg">
+            <div class="info_1">
+            <div>
+            <i class="fas fa-eye"></i>
+            <aside>222</aside>
+            </div>
+            <div>
+            <i class="fas fa-comment"></i>
+            <aside>0</aside>
+            </div>
+            </div>
+            <div class="date_info">
+            <p>يناير</p>
+            <p>05</p>
+            <p>2022</p>
+            </div>
+            </div>
+            <div class="p-3">
+            <div class="small">الاخبار</div>
+            <div>
+            <h5>مدارس دار الفرسان للتعلم الذكي الشريك</h5>
+            <p class="discrip">استكمالاً لرسالة مدارس دار الفرسانفي نشر العلم والتعلم بأحدث الأساليب التعليمية وأكثرها سهولة ويسراً، وقعت مدارس دار الفرسانللتعلم الذكي عقد شراكة استراتيجية مع جمعية المحافظة على القرآن الكريم في الأردن بهدف إتاحة الفرصة لمنتسبي الجمعية من طلبة ومعلمين للاستفادة من خدمات منصة مدارس دار الفرسان التعليمية، وذلك بحضور المدير العام للجمعية الأستاذ حسين عسّاف والرئيس التنفيذي لشركة مدارس دار الفرسانالمهندس محمّد المدني.</p>
+            </div>
+            <div class="text-left mt-2 main-color f-b"><a href="news-details.html" class="under-line">التفاصيل..</a></div>
+            </div>
+            </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+            <div class="box_news wow zoomIn">
+            <div class="po_R the_img">
+            <img src="~/imgs/PhoNN_3650_132020311849393.jpg">
+            <div class="info_1">
+            <div>
+            <i class="fas fa-eye"></i>
+            <aside>222</aside>
+            </div>
+            <div>
+            <i class="fas fa-comment"></i>
+            <aside>0</aside>
+            </div>
+            </div>
+            <div class="date_info">
+            <p>يناير</p>
+            <p>05</p>
+            <p>2022</p>
+            </div>
+            </div>
+            <div class="p-3">
+            <div class="small">الاخبار</div>
+            <div>
+            <h5 class="f-b">مدارس دار الفرسان للتعلم الذكي الشريك</h5>
+            <p class="discrip">استكمالاً لرسالة مدارس دار الفرسانفي نشر العلم والتعلم بأحدث الأساليب التعليمية وأكثرها سهولة ويسراً، وقعت مدارس دار الفرسانللتعلم الذكي عقد شراكة استراتيجية مع جمعية المحافظة على القرآن الكريم في الأردن بهدف إتاحة الفرصة لمنتسبي الجمعية من طلبة ومعلمين للاستفادة من خدمات منصة مدارس دار الفرسانالتعليمية، وذلك بحضور المدير العام للجمعية الأستاذ حسين عسّاف والرئيس التنفيذي لشركة مدارس دار الفرسان المهندس محمّد المدني.</p>
+            </div>
+            <div class="text-left mt-2 main-color f-b"><a href="news-details.html" class="under-line">التفاصيل..</a></div>
+            </div>
+            </div>
+            </div> *@
+        </div>
+    </div>
+</section>
+
+<section class="sec-padd" id="about_us">
+    <div class="container">
+        <div class="the_Title wow zoomIn">@DBResources.SaidAboutUs.PageTitle<span></span></div>
+        <div class="owl-carousel customers-testimonials">
+            @foreach (var item in Model.SaidAboutUs)
+            {
+                <div class="item">
+                    <div class="px-4">
+                        <img src="~/FileStorage/@item.Img" alt="">
+                        <p class="grey-color">
+                            @(Core.UI.Locals.IsLocal ? extractContent(item.MessageAr) : extractContent(item.MessageEn))
+                        </p>
+                    </div>
+                </div>
+            }
+            @* <div class="item">
+            <div class="px-4">
+            <img src="~/imgs/AvatarPlaceholderDark.svg" alt="">
+            <p class="grey-color">في عالم شركاء مدارس دار الفرسان جمعنا وتحت مظلة واحدة أكثر من 50 شريكاً عالمياً لتقدم خدمات متكاملة وعبر نظامٍ واحدٍ وبأبسط الطرق، ومن أمثلة شركاتنا المتنوعة عالمياً </p>
+            </div>
+            </div>
+
+            <div class="item">
+            <div class="px-4">
+            <img src="~/imgs/AvatarPlaceholderDark.svg" alt="">
+            <p class="grey-color">في عالم شركاء مدارس دار الفرسان جمعنا وتحت مظلة واحدة أكثر من 50 شريكاً عالمياً لتقدم خدمات متكاملة وعبر نظامٍ واحدٍ وبأبسط الطرق، ومن أمثلة شركاتنا المتنوعة عالمياً </p>
+            </div>
+            </div>
+
+            <div class="item">
+            <div class="px-4">
+            <img src="~/imgs/AvatarPlaceholderDark.svg" alt="">
+            <p class="grey-color">في عالم شركاء مدارس دار الفرسان جمعنا وتحت مظلة واحدة أكثر من 50 شريكاً عالمياً لتقدم خدمات متكاملة وعبر نظامٍ واحدٍ وبأبسط الطرق، ومن أمثلة شركاتنا المتنوعة عالمياً </p>
+            </div>
+            </div>
+            <div class="item">
+            <div class="px-4">
+            <img src="~/imgs/AvatarPlaceholderDark.svg" alt="">
+            <p class="grey-color">في عالم شركاء مدارس دار الفرسان جمعنا وتحت مظلة واحدة أكثر من 50 شريكاً عالمياً لتقدم خدمات متكاملة وعبر نظامٍ واحدٍ وبأبسط الطرق، ومن أمثلة شركاتنا المتنوعة عالمياً </p>
+            </div>
+            </div> *@
+        </div>
+    </div>
+</section>
+
+<section class="sec-padd" id="fruits_academy">
+    <div class="container">
+        <div class="the_Title wow zoomIn">@DBResources.SchoolFruits.PageTitle <span></span></div>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="text-center">
+                    <div class="f-b">
+                        مدارس دار الفرسان
+                    </div>
+                    <p class="mb-20 grey-color">
+                        مدرسة ثنائية اللغة تعتمد على بناء طفل متوازن في اتقانه لمهارات اللغة العربية والإنجليزية معاً. نحن نؤمن بالنظرة الشمولية والمتوازنة بين التحصيل الأكاديمي والبناء الفكري وتطوير الشخصية لدى طلبتنا ونعتبرها أحد أهم مرتكزاتنا واهتماماتنا.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            @foreach (var item in Model.SchoolFruits)
+            {
+                <div class="col-lg-4 col-md-6">
+                    <div class="package wow zoomIn">
+                        <div class="name">@(Core.UI.Locals.IsLocal ? item.TitleAr : item.TitleEn)</div>
+                        <ul class="info">
+                            @foreach (var details in item.FruitsDetails)
+                            {
+                                <li>
+                                    @(Core.UI.Locals.IsLocal ? details.TitleAr : details.TitleEn)
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            }
+            @* <div class="col-lg-4 col-md-6">
+            <div class="package wow zoomIn">
+            <div class="name">ثمار المدرسة</div>
+            <ul class="info">
+            <li>
+            في مدارس دار الفرسان عائلة مميزة يجمعها شغف خدمة التعلم، والتدريب،بأحدث وآخر ما توصلت إليه التقنية، عائلة مترابطة تسعى دائماً إلى تقديم كل ما هو جديد ومميز ومتطور وملهم من حلول تعليمية، حيث تشترك عائلة مدارس دار الفرسان في
+            </li>
+            <li>
+            في مدارس دار الفرسان عائلة مميزة يجمعها شغف خدمة التعلم، والتدريب،بأحدث وآخر ما توصلت إليه التقنية، عائلة مترابطة تسعى دائماً إلى تقديم كل ما هو جديد ومميز ومتطور وملهم من حلول تعليمية، حيث تشترك عائلة مدارس دار الفرسان في
+            </li>
+            <li>
+            في مدارس دار الفرسان عائلة مميزة يجمعها شغف خدمة التعلم، والتدريب،بأحدث وآخر ما توصلت إليه التقنية، عائلة مترابطة تسعى دائماً إلى تقديم كل ما هو جديد ومميز ومتطور وملهم من حلول تعليمية، حيث تشترك عائلة مدارس دار الفرسان في
+            </li>
+            </ul>
+            </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+            <div class="package wow zoomIn">
+            <div class="name">ثمار المدرسة</div>
+            <ul class="info">
+            <li>
+            في مدارس دار الفرسان عائلة مميزة يجمعها شغف خدمة التعلم، والتدريب،بأحدث وآخر ما توصلت إليه التقنية، عائلة مترابطة تسعى دائماً إلى تقديم كل ما هو جديد ومميز ومتطور وملهم من حلول تعليمية، حيث تشترك عائلة مدارس دار الفرسان في
+            </li>
+            <li>
+            في مدارس دار الفرسان عائلة مميزة يجمعها شغف خدمة التعلم، والتدريب،بأحدث وآخر ما توصلت إليه التقنية، عائلة مترابطة تسعى دائماً إلى تقديم كل ما هو جديد ومميز ومتطور وملهم من حلول تعليمية، حيث تشترك عائلة مدارس دار الفرسان في
+            </li>
+            </ul>
+            </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+            <div class="package wow zoomIn">
+            <div class="name">ثمار المدرسة</div>
+            <ul class="info">
+            <li>
+            في مدارس دار الفرسان عائلة مميزة يجمعها شغف خدمة التعلم، والتدريب،بأحدث وآخر ما توصلت إليه التقنية، عائلة مترابطة تسعى دائماً إلى تقديم كل ما هو جديد ومميز ومتطور وملهم من حلول تعليمية، حيث تشترك عائلة مدارس دار الفرسان في
+            </li>
+            <li>
+            في مدارس دار الفرسان عائلة مميزة يجمعها شغف خدمة التعلم، والتدريب،بأحدث وآخر ما توصلت إليه التقنية، عائلة مترابطة تسعى دائماً إلى تقديم كل ما هو جديد ومميز ومتطور وملهم من حلول تعليمية، حيث تشترك عائلة مدارس دار الفرسان في
+            </li>
+            </ul>
+            </div>
+            </div> *@
+        </div>
+    </div>
+</section>

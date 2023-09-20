@@ -1,0 +1,98 @@
+﻿@model ViewModels.Security.Credential
+@{
+    Layout = null;
+    string ScriptVersion = Versioning.Js.GetCurrent(Config);
+    string StyleVersion = Versioning.Css.GetCurrent(Config);
+    //var Data = new Services.ThemeLogin().GetCurrent();
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@CorePageTitle.Login</title>
+    <link rel="stylesheet" href="~/lib/bootstrap.4.3.rtl/css/bootstrap.min.css?v=@StyleVersion" />
+    <link rel="stylesheet" href="~/lib/fontawesome/font-awesome.css?v=@StyleVersion" />
+    <link rel="stylesheet" href="~/theme/_shared/site.css?v=@StyleVersion" />
+    <link rel="stylesheet" href="~/theme/_shared/site.rtl.css?v=@StyleVersion" />
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <script src="~/lib/bootstrap.4.3.rtl/js/bootstrap.min.js"></script>
+    <script src="~/lib/jquery-ui/js/jquery-ui-1.12.1.min.js"></script>
+    <link rel="stylesheet" href="~/lib/jquery-ui/css/jquery-ui.min.css" />
+    <style>
+    </style>
+</head>
+<body class="login">
+    <img class="login-portal-dars360" src="~/imgs/Portal.png" />
+    <div class="container rtl login-container">
+        <div class="row">
+            <div class="md-offset-1"></div>
+            <div class="col-md-4 col-center v-center">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="login-wrapper smooth-trans">
+                            <form asp-action="Login" asp-controller="Account" method="post">
+                                <input asp-for="ReturnUrl" hidden />
+                                @Html.AntiForgeryToken()
+                                <div class="row">
+                                    <div class="login-logo"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12" style="padding-bottom:10px">
+                                        <span class="text-danger"><i class="fa fa-times-circle" style='visibility:@(string.IsNullOrEmpty(ViewBag.Message)?"hidden":"visible")'></i> @ViewBag.Message</span>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-12">
+                                        @Html.LabelFor(model => model.UserName, DBResources.Security.UserName)
+                                        <div class="username-wrapper">
+                                            @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control form-control-sm latin-font login-input" } })
+                                        </div>
+                                        @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger d-none" })
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        @Html.LabelFor(model => model.Password, DBResources.Security.Password)
+                                        <div class="password-wrapper">
+                                            @Html.PasswordFor(model => model.Password, new { @class = "form-control form-control-sm latin-font login-input", Value = Model.Password })
+                                        </div>
+                                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-dange  d-none" })
+                                    </div>
+                                    <div class="col-md-12 text-center">
+                                        <button type="submit" class="btn login-btn" id="BtnLogin"><i class="fa fa-unlock"></i> @CoreCommand.CmdLogin</button>
+                                    </div>
+                                    @if (Model.EnableRegisterLink)
+                                    {
+                                        <div class="col-md-12 text-center">
+                                            <span class="default-font register-text">@CoreMessage.RegisterStudentTitle <a href="/Admission/Registeration/init"> @CoreMessage.ClickHere</a></span>
+                                        </div>
+                                    }
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                  @*  <div class="col-md-12 mt-3 text-center ">
+                        <span class="login-school-name">@(new Services.SysProperty(1).GetValue((int)ViewModels.Shared.Enum.SysProperty.SchoolLocalName)) </span>
+                    </div>*@
+
+                    @*<div class="col-md-12 mt-3  text-center ">
+                        <div>
+                            @{
+                                string LogoName = (new Services.SysProperty(1).GetValue((int)ViewModels.Shared.Enum.SysProperty.SchoolLogoIcon));
+
+                            }
+                            @if (!string.IsNullOrEmpty(LogoName))
+                            {
+                                <img src=@("/"+Config["AppSettings:FileStorage"]+"/"+LogoName) class="login-logo-sch" />
+                            }
+                        </div>
+                    </div>*@
+                </div>
+            </div>
+            <div class="col-md-7 login-bg">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,100 @@
+ body{
+     direction: ltr;
+     text-align: left;
+ }
+
+.bodynew {
+    margin-top: 65px !important
+}
+.navLinks ,
+.TimeLogin{
+    margin-right: 0;
+    margin-left: auto
+}
+.chart-content {
+    margin-top: 65px !important
+}
+.navHeader {
+    border-radius: 50px 0 0 50px;
+}
+
+.mr-2 {
+    margin-right: 0!important;
+    margin-left: 0.5rem!important;
+}
+
+
+.outer_logins_page .paner_login:after {
+    left: unset;
+    right: 20px
+}
+
+.outer_logins_page .paner_login:before {
+    left: unset;
+    right: 30px;
+}
+
+.icon_img {
+    right: unset;
+    left: 8px;
+}
+
+.icon_fa {
+    left: unset;
+    right: 10px
+}
+
+
+.navMenu_ {
+    right: unset;
+    left: 0;
+}
+
+.drobMenuLinks:after {
+    right: unset;
+    left: 18px
+}
+
+.showTitlesBreadcrumb {
+    left: unset;
+    right: 0;
+}
+
+.showTitlesBreadcrumb.active {
+    left: 0;
+    right: unset;
+}
+
+.NavMenu_Links .LinkTo_ i {
+    left: unset;
+    right: 1px
+}
+
+
+.drobMenuLinks .LinkTo_:after {
+    right: unset;
+    left: 0
+}
+
+
+.PopoversCard {
+    left: unset !important;
+    right: 100% !important;
+    transform: translate(-8px, -50%) !important;
+}
+
+
+    .PopoversCard .listo_ li:after {
+        right: unset;
+        left: 0
+    }
+
+
+@media (max-width: 991.98px) {
+
+    .PopoversCard {
+        top: -100% !important;
+        left: 50% !important;
+        transform: translate(-50%, -47%) !important;
+    }
+}

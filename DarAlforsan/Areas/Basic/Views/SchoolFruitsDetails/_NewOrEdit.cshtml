@@ -1,0 +1,24 @@
+﻿@model ViewModels.Form.SchoolFruitsDetails
+<form id="form-SchoolFruitsDetails" name="form-SchoolFruitsDetails" onkeypress="schoolFruitsDetails.onformKeypress('form-SchoolFruitsDetails',event)">
+    @Html.HiddenFor(model => model.ID)
+    <div class="form-row">
+        <div class="form-group col-md-12">
+            @Html.LabelFor(a => a.TitleAr)
+            @Html.EditorFor(model => model.TitleAr, new { htmlAttributes = new { @class = "form-control form-control-md" } })
+            @Html.ValidationMessageFor(model => model.TitleAr, "", new { @class = "text-danger d-none" })
+        </div>
+        <div class="form-group col-md-12">
+            @Html.LabelFor(a => a.TitleEn)
+            @Html.EditorFor(model => model.TitleEn, new { htmlAttributes = new { @class = "form-control form-control-md" } })
+            @Html.ValidationMessageFor(model => model.TitleEn, "", new { @class = "text-danger d-none" })
+        </div>
+        <div class="form-group col-md-12">
+            @Html.LabelFor(model => model.FruitsID)
+            @Html.DropDownListFor(model => model.FruitsID, new SelectList(Model.SchoolFruits, "ID", Core.UI.Locals.IsLocal ? "TitleAr" : "TitleEn"), DBResources.CoreView.SelectValue, htmlAttributes: new { @class = "form-control form-control-sm default-font" })
+            @Html.ValidationMessageFor(model => model.FruitsID, "", new { @class = "text-danger d-none" })
+        </div>
+    </div>
+    <div class="cmd-wrapper">
+        <button type="button" onclick="schoolFruitsDetails.save('form-SchoolFruitsDetails')" class="btn btn-success"><i class="fas fa-check"></i> @CoreCommand.CmdSave </button>
+    </div>
+</form>

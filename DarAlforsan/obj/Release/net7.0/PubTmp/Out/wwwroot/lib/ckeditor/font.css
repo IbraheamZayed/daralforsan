@@ -1,0 +1,33 @@
+/*@font-face {
+  font-family: 'awesome';
+  src: url("/lib/fontawesome/fonts/fontawesome-webfont.ttf"); }*/
+
+@font-face {
+    font-family: 'hb';
+    src: url("/fonts/hb.ttf");
+    /*src: local("Hoefler Text"), url("http://localhost:4100/fonts/hb.ttf")format("truetype");*/
+}
+@font-face {
+    font-family: 'AdvertisingBold';
+    src: url("/fonts/AdvertisingBold.ttf");
+}
+@font-face {
+    font-family: 'AdvertisingExtraBold';
+    src: url("/fonts/AdvertisingExtraBold.ttf");
+}
+@font-face {
+    font-family: 'ae_AlHor';
+    src: url("/fonts/ae_AlHor.ttf");
+}
+@font-face {
+    font-family: 'ae_Sharjah';
+    src: url("/fonts/ae_Sharjah.ttf");
+}
+@font-face {
+    font-family: 'Ah-moharram-bold';
+    src: url("/fonts/Ah-moharram-bold.ttf");
+}
+@font-face {
+    font-family: 'Arslan';
+    src: url("/fonts/Arslan.ttf");
+}

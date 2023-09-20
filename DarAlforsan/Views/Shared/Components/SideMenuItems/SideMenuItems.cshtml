@@ -1,0 +1,45 @@
+﻿@model ViewModels.List.SideMenu
+@{
+    Layout = null;
+}
+@*@foreach (var item in Model.PageSections)
+{
+    if ((Model.Pages.Any(obj => obj.PageSectionID == item.SectionID)))
+    {
+        <li class="parentMenu" title="@(Core.UI.Locals.IsLocal? item.LocalName:item.LatinName)">
+            <a class="has-arrow" href="#" aria-expanded="false">
+                <span class="@item.Icon"></span>
+                <span class="menu-item-title parent-menu-item"> @(Core.UI.Locals.IsLocal? item.LocalName:item.LatinName) </span>
+            </a>
+            <ul class="collapse bg-menu-theme menuitems">
+                <li class="title_  bg-menu-theme main-menu">
+                    @(Core.UI.Locals.IsLocal? item.LocalName:item.LatinName)
+                </li>
+                @foreach (var userpage in Model.Pages)
+                {
+                    if (item.SectionID == userpage.PageSectionID)
+                    {
+                        <li>
+                            <a href='/@userpage.RelativePath' rel-href='/@userpage.RelatedSysPages'>
+                                <span class="menu-dot"></span> <span class="default-font menu-item-title"> @(Core.UI.Locals.IsLocal ? userpage.PageLocalName : userpage.PageLatinName)</span>
+
+                            </a>
+                        </li>
+                    }
+                }
+            </ul>
+        </li>
+    }
+    else
+    {
+        if (item.RelativePath != null)
+        {
+            <li>
+                <a href='~/@item.RelativePath' rel-href='/@item.RelativePath/'>
+                    <span class="@item.Icon"></span>
+                    <span class="default-font side-menu-title">  @(Core.UI.Locals.IsLocal? item.LocalName : item.LatinName)</span>
+                </a>
+            </li>
+        }
+    }
+}*@

@@ -1,0 +1,98 @@
+﻿$default-font-name: Lato;
+$direction: ltr;
+$float: left;
+$text-align: right;
+/*Side Menu*/
+$side-menu-width: 230px;
+
+
+//default font
+.default-font {
+    font-family: $default-font-name;
+}
+
+
+%html-body-shared {
+    direction: $direction;
+    font-family: $default-font-name !important;
+    font-weight: 700 !important;
+}
+
+html {
+    @extend %html-body-shared;
+}
+
+body {
+    @extend %html-body-shared;
+}
+
+.dir {
+    direction: $direction;
+}
+
+
+@media (min-width: 768px) {
+    .page-wrapper {
+        margin-left: $side-menu-width;
+    }
+}
+/*START:Header & Footer*/
+@media (min-width: 768px) {
+    .footer-fixed {
+        padding-left: $side-menu-width;
+    }
+}
+@media (min-width: 768px) {
+    .header-fixed {
+        right: 0px;
+    }
+}
+/*END:Header & Footer*/
+/*START:FORM*/
+label {
+    float: $float;
+}
+/*END:FORM*/
+
+.list-cmd-wrapper {
+    text-align: $text-align;
+}
+
+.q-action-wrapper {
+    left: 0px;
+}
+
+/*Data Table Local & Latin Column Name*/
+td.local-column, th.local-column {
+    display: none;
+}
+
+table.dataTable {
+    width: 100% !important;
+}
+
+/*Custom DateTime Picker Style*/
+.date-form-group {
+    text-align:left;
+}
+
+//selected item
+.select2-selection__rendered {
+    font-family: $default-font-name !important;
+}
+//UL LI Option
+.select2-results__option {
+    font-family: $default-font-name;
+}
+
+/*START: Side Menu*/
+.sidebar-nav .metismenu a .menu-item-title {
+    padding-right: 0px;
+    transition: all 0.5s ease;
+}
+
+.sidebar-nav .metismenu a:hover .menu-item-title {
+    padding-left: 5px;
+    transition: all 0.5s ease;
+}
+/*END: Side Menu*/

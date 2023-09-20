@@ -1,0 +1,245 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = DarAlforsan
+build_property.RootNamespace = DarAlforsan
+build_property.ProjectDir = D:\darsworck\DarAlforsan\DarAlforsan\
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = D:\darsworck\DarAlforsan\DarAlforsan
+build_property._RazorSourceGeneratorDebug = 
+
+[D:/darsworck/DarAlforsan/DarAlforsan/Areas/Admin/Views/AdminHome/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5Ib21lXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/darsworck/DarAlforsan/DarAlforsan/Areas/Admin/Views/ResourceModule/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUmVzb3VyY2VNb2R1bGVcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/darsworck/DarAlforsan/DarAlforsan/Areas/Admin/Views/ResourceModule/_NewOrEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUmVzb3VyY2VNb2R1bGVcX05ld09yRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/darsworck/DarAlforsan/DarAlforsan/Areas/Admin/Views/Resources/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUmVzb3VyY2VzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/darsworck/DarAlforsan/DarAlforsan/Areas/Admin/Views/Resources/_NewOrEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUmVzb3VyY2VzXF9OZXdPckVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/darsworck/DarAlforsan/DarAlforsan/Areas/Admin/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/darsworck/DarAlforsan/DarAlforsan/Areas/Basic/Views/AboutSchool/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQmFzaWNcVmlld3NcQWJvdXRTY2hvb2xcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/darsworck/DarAlforsan/DarAlforsan/Areas/Basic/Views/AboutSchool/_NewOrEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQmFzaWNcVmlld3NcQWJvdXRTY2hvb2xcX05ld09yRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/darsworck/DarAlforsan/DarAlforsan/Areas/Basic/Views/ContactUs/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQmFzaWNcVmlld3NcQ29udGFjdFVzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/darsworck/DarAlforsan/DarAlforsan/Areas/Basic/Views/ContactUs/_NewOrEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQmFzaWNcVmlld3NcQ29udGFjdFVzXF9OZXdPckVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/darsworck/DarAlforsan/DarAlforsan/Areas/Basic/Views/News/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQmFzaWNcVmlld3NcTmV3c1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/darsworck/DarAlforsan/DarAlforsan/Areas/Basic/Views/News/_NewOrEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQmFzaWNcVmlld3NcTmV3c1xfTmV3T3JFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/darsworck/DarAlforsan/DarAlforsan/Areas/Basic/Views/SaidAboutUs/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQmFzaWNcVmlld3NcU2FpZEFib3V0VXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/darsworck/DarAlforsan/DarAlforsan/Areas/Basic/Views/SaidAboutUs/_NewOrEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQmFzaWNcVmlld3NcU2FpZEFib3V0VXNcX05ld09yRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/darsworck/DarAlforsan/DarAlforsan/Areas/Basic/Views/SchoolFruitsDetails/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQmFzaWNcVmlld3NcU2Nob29sRnJ1aXRzRGV0YWlsc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/darsworck/DarAlforsan/DarAlforsan/Areas/Basic/Views/SchoolFruitsDetails/_NewOrEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQmFzaWNcVmlld3NcU2Nob29sRnJ1aXRzRGV0YWlsc1xfTmV3T3JFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/darsworck/DarAlforsan/DarAlforsan/Areas/Basic/Views/SchoolFruits/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQmFzaWNcVmlld3NcU2Nob29sRnJ1aXRzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/darsworck/DarAlforsan/DarAlforsan/Areas/Basic/Views/SchoolFruits/_NewOrEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQmFzaWNcVmlld3NcU2Nob29sRnJ1aXRzXF9OZXdPckVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/darsworck/DarAlforsan/DarAlforsan/Areas/Basic/Views/SchoolSystem/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQmFzaWNcVmlld3NcU2Nob29sU3lzdGVtXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/darsworck/DarAlforsan/DarAlforsan/Areas/Basic/Views/SchoolSystem/_NewOrEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQmFzaWNcVmlld3NcU2Nob29sU3lzdGVtXF9OZXdPckVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/darsworck/DarAlforsan/DarAlforsan/Areas/Basic/Views/SchoolVision/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQmFzaWNcVmlld3NcU2Nob29sVmlzaW9uXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/darsworck/DarAlforsan/DarAlforsan/Areas/Basic/Views/SchoolVision/_NewOrEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQmFzaWNcVmlld3NcU2Nob29sVmlzaW9uXF9OZXdPckVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/darsworck/DarAlforsan/DarAlforsan/Areas/Basic/Views/Slider/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQmFzaWNcVmlld3NcU2xpZGVyXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/darsworck/DarAlforsan/DarAlforsan/Areas/Basic/Views/Slider/_NewOrEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQmFzaWNcVmlld3NcU2xpZGVyXF9OZXdPckVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/darsworck/DarAlforsan/DarAlforsan/Areas/Basic/Views/SocialMedia/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQmFzaWNcVmlld3NcU29jaWFsTWVkaWFcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/darsworck/DarAlforsan/DarAlforsan/Areas/Basic/Views/SocialMedia/_NewOrEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQmFzaWNcVmlld3NcU29jaWFsTWVkaWFcX05ld09yRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/darsworck/DarAlforsan/DarAlforsan/Areas/Basic/Views/Statistics/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQmFzaWNcVmlld3NcU3RhdGlzdGljc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/darsworck/DarAlforsan/DarAlforsan/Areas/Basic/Views/Statistics/_NewOrEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQmFzaWNcVmlld3NcU3RhdGlzdGljc1xfTmV3T3JFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/darsworck/DarAlforsan/DarAlforsan/Areas/Basic/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQmFzaWNcVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/darsworck/DarAlforsan/DarAlforsan/Areas/Common/Views/Account/AccessDenied.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQ29tbW9uXFZpZXdzXEFjY291bnRcQWNjZXNzRGVuaWVkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/darsworck/DarAlforsan/DarAlforsan/Areas/Common/Views/Account/ChangePassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQ29tbW9uXFZpZXdzXEFjY291bnRcQ2hhbmdlUGFzc3dvcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/darsworck/DarAlforsan/DarAlforsan/Areas/Common/Views/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQ29tbW9uXFZpZXdzXEFjY291bnRcTG9naW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/darsworck/DarAlforsan/DarAlforsan/Areas/Common/Views/Account/Login2.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQ29tbW9uXFZpZXdzXEFjY291bnRcTG9naW4yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/darsworck/DarAlforsan/DarAlforsan/Areas/Common/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQ29tbW9uXFZpZXdzXF9WaWV3SW1wb3J0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/darsworck/DarAlforsan/DarAlforsan/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/darsworck/DarAlforsan/DarAlforsan/Views/Home/Index2.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleDIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/darsworck/DarAlforsan/DarAlforsan/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/darsworck/DarAlforsan/DarAlforsan/Views/Shared/Components/SideMenuItems/SideMenuItems.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcU2lkZU1lbnVJdGVtc1xTaWRlTWVudUl0ZW1zLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/darsworck/DarAlforsan/DarAlforsan/Views/Shared/Components/SideMenu/SideMenu.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcU2lkZU1lbnVcU2lkZU1lbnUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/darsworck/DarAlforsan/DarAlforsan/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/darsworck/DarAlforsan/DarAlforsan/Views/Shared/_Dropzone.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Ecm9wem9uZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/darsworck/DarAlforsan/DarAlforsan/Views/Shared/_Footer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Gb290ZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/darsworck/DarAlforsan/DarAlforsan/Views/Shared/_Header.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9IZWFkZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/darsworck/DarAlforsan/DarAlforsan/Views/Shared/_Header2.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9IZWFkZXIyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/darsworck/DarAlforsan/DarAlforsan/Views/Shared/_HeadScripts.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9IZWFkU2NyaXB0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/darsworck/DarAlforsan/DarAlforsan/Views/Shared/_LoginTime.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblRpbWUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/darsworck/DarAlforsan/DarAlforsan/Views/Shared/_Modal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Nb2RhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/darsworck/DarAlforsan/DarAlforsan/Views/Shared/_NavMenuLayout2.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9OYXZNZW51TGF5b3V0Mi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/darsworck/DarAlforsan/DarAlforsan/Views/Shared/_Scripts.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9TY3JpcHRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/darsworck/DarAlforsan/DarAlforsan/Views/Shared/_Spinner.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9TcGlubmVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/darsworck/DarAlforsan/DarAlforsan/Views/Shared/_Styles.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9TdHlsZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/darsworck/DarAlforsan/DarAlforsan/Views/Shared/_ThemeSelector.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9UaGVtZVNlbGVjdG9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/darsworck/DarAlforsan/DarAlforsan/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/darsworck/DarAlforsan/DarAlforsan/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/darsworck/DarAlforsan/DarAlforsan/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/darsworck/DarAlforsan/DarAlforsan/Views/Shared/_ExternalLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9FeHRlcm5hbExheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = b-j5wghxsyt0
+
+[D:/darsworck/DarAlforsan/DarAlforsan/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-8rj7brzxxm

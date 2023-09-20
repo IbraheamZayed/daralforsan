@@ -1,0 +1,367 @@
+/*Header-Footer*/
+/*Header-LINK*/
+/*Logo*/
+/*Today*/
+/*Side Menu*/
+/*Site Map*/
+/*Form*/
+/*Option Box*/
+/*Login*/
+/*Buttons & Text & */
+/*Theme Button*/
+/*Theme*/
+@font-face {
+    font-family: hb;
+/*    src: url("/fonts/Cairo-Regular.ttf");
+*/        src: url("/fonts/HelveticaW23.ttf");
+
+}
+
+.local-font {
+    font-family: hb !important;
+}
+
+.latin-font {
+    font-family: Lato !important;
+    font-weight: 700;
+}
+
+.local-font-default-size {
+    font-size: 10pt;
+}
+
+* {
+    line-height: 1;
+}
+
+html, body {
+    font-family: hb;
+    font-weight: bold;
+}
+
+html {
+    line-height: 1;
+}
+
+body {
+    background-color: #f3f3f4 !important
+}
+
+body {
+    background-color: #f3f3f4 !important
+}
+
+@media (min-width: 768px) {
+    .side-menu-wrapper {
+        width: 230px;
+    }
+}
+
+/*START:Custom Panel*/
+.panel-theme {
+    background-color: #1d81b9;
+    background: linear-gradient(120deg, #7bd0ff 50%, #69bfef 50%);
+    padding: 5px;
+    color: white;
+    border-radius: 2px;
+}
+
+.panel-theme-light {
+    background-color: #bae7ff;
+    padding: 5px;
+    color: white;
+    border-radius: 2px;
+}
+
+/*END:Custom Panel*/
+/*START:Custom Theme Button*/
+.btn-theme {
+    background-color: #389fe8;
+    color: white;
+}
+
+    .btn-theme:hover {
+        background-color: #108ae0 !important;
+    }
+
+/*End:Custom Theme Button*/
+/*START:Theme Text*/
+.text-theme {
+    color: #1d81b9;
+}
+
+/*END*/
+/*START:Theme Background*/
+.bg-theme {
+    background-color: #1d81b9;
+    background: linear-gradient(120deg, #7bd0ff 50%, #69bfef 50%) !important;
+}
+
+.bg-menu-theme {
+    background-color: #1d81b9 !important;
+    /*    background: linear-gradient(120deg, #7bd0ff 50%, #69bfef 50%) !important;
+*/
+}
+/*END*/
+/*START:HEADER&FOOTER*/
+.header-wrapper, .footer-wrapper {
+    background-color: #eaeaea;
+    border-color: #dad9d9;
+}
+
+/*END:HEADER&FOOTER*/
+/*START:HEADER LINK*/
+.header-link, .header-link:hover {
+    font-size: 10pt;
+}
+
+
+
+.header-link {
+    color: #999c9e;
+}
+
+    .header-link:hover {
+        color: #19aa8d;
+    }
+
+/*END:HEADER LINK*/
+/*START:LOGO*/
+/*.logo-wrapper {
+  background-color: #288bc3; }*/
+.logo-wrapper {
+    background-color: #288bc3;
+}
+
+.logo-inner-wrapper {
+    height: 150px;
+}
+
+/*END:LOGO*/
+/*START:TODAY*/
+.today-wrapper {
+    background-color: #17638e;
+}
+
+.q-action-wrapper {
+    background-color: #17638e;
+}
+
+.filter-menu-search {
+    background-color: #2e77a1;
+    border: none !important;
+    outline: none !important;
+    color: white;
+    box-shadow: none;
+    border-color: inherit;
+    -webkit-box-shadow: none;
+}
+
+    .filter-menu-search:focus {
+        background-color: #3481ad;
+        border: none !important;
+        outline: none !important;
+        color: white;
+        box-shadow: none;
+        border-color: inherit;
+        -webkit-box-shadow: none;
+    }
+
+    .filter-menu-search::placeholder {
+        font-family: FontAwesome;
+        color: white;
+    }
+
+@media (min-width: 768px) {
+    .q-action-wrapper {
+        width: 230px;
+    }
+}
+
+/*END:TODAY*/
+/*START:SIDE MENU*/
+.sidebar-nav {
+    background-color: #1d81b9;
+}
+
+    .sidebar-nav .metismenu .active {
+        border-color: #f8bb1a;
+        border-width: 0px;
+        background-color: #0e71a9;
+    }
+
+    .sidebar-nav .metismenu a {
+        color: white;
+    }
+
+        .sidebar-nav .metismenu a:hover,
+        .sidebar-nav .metismenu a:focus,
+        .sidebar-nav .metismenu a:active {
+            background: #076498;
+            color: white;
+        }
+
+.sidemenu-icon {
+    color: White;
+}
+
+.current-node {
+    background-color: #0a6598;
+}
+
+.current-parent-node {
+    background-color: #085d8c;
+}
+
+/*END:SIDE MENU*/
+/*START:SITE MAP*/
+.sitemap-wrapper {
+    background-color: white;
+    color: #007bff;
+    font-size: 11pt;
+    border-bottom-color: #e5e5e5;
+}
+
+.sitemap-icon {
+    color: #4cb4f1;
+}
+
+/*END:SITE MAP*/
+/*START:FORM*/
+label, .dataTables_info {
+    color: #068fde;
+    font-size: 10pt;
+}
+
+div.form-section-title {
+    color: #ffffff;
+    background-color: #1d81b9;
+    background: linear-gradient(120deg, #7bd0ff 50%, #69bfef 50%);
+}
+
+hr.form-section-title {
+    background-color: #78bde4;
+}
+
+.option-check-box, .option-radio, .option-box {
+    border-color: #69b7e6;
+    background-color: #69b7e6;
+    color: white;
+}
+
+.option-check-box-checked, .option-radio-checked, .option-box-checked {
+    border-color: #1d81b9;
+    background-color: #1d81b9;
+    color: white;
+}
+
+    .option-check-box:hover, .option-radio:hover, .option-box:hover,
+    .option-check-box-checked:hover, .option-radio-checked:hover, .option-box-checked:hover {
+        background-color: #1e9de4;
+    }
+
+.option-box {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.option-box-checked {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+/*END:FORM*/
+/*START:DataTable*/
+.loading {
+    color: #1d81b9;
+}
+
+.checkbox-unchecked {
+    cursor: pointer;
+    color: #b1b1b1;
+}
+
+.checkbox-checked {
+    cursor: pointer;
+    color: #1d81b9;
+}
+
+/*End:DataTable*/
+/*START:LOGIN PAGE*/
+.login-body {
+    background-color: white;
+}
+
+.login-wrapper {
+    background-color: #ade7fb;
+}
+
+    .login-wrapper label {
+        color: #0961c1 !important;
+    }
+
+    .login-wrapper button {
+        background-color: #186ecc;
+        color: white;
+        border-color: #0e6acf;
+    }
+
+        .login-wrapper button:hover {
+            background-color: #1373dc;
+        }
+
+/*END:LOGIN PAGE*/
+/*START:BUTTONS*/
+.btn {
+    font-family: hb;
+    font-size: 11pt !important;
+    min-width: 95px;
+}
+
+/*END:BUTTONS*/
+/*START:SPINNER*/
+.spinner {
+    border-top-color: #1d81b9 !important;
+}
+
+/*END:SPINNER*/
+/*START:FILESTORAGE*/
+.folder-theme {
+    color: #9fdcff !important;
+}
+
+.folder .label {
+    background-color: #0a70ab;
+}
+
+/*END:FILESTORAGE*/
+/*START:SCROLL TOP*/
+.scroll-top {
+    background-color: #108ae0;
+}
+
+/*END:SCROLL TOP*/
+/*START: Progress circle  */
+.c100.p100 .fill {
+    border: 0.08em solid #068fde;
+}
+
+.c100 .bar {
+    border: 0.08em solid #068fde;
+}
+
+.c100:hover > span {
+    color: #068fde;
+}
+
+/*END : Progress circle*/
+/*STRAT : range-input */
+.line-scale-control::-webkit-slider-thumb {
+    background: #1d81b9 !important;
+}
+
+.line-scale-control::-moz-range-thumb {
+    background: #1d81b9 !important;
+}
+
+/*END : range-input */

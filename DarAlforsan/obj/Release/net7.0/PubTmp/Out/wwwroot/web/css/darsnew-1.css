@@ -1,0 +1,58 @@
+:root {
+    --main: #55497a;
+    --main2: #d3d8ca;
+    --main3: #55497a !important;
+    --main4: #ffb3b6 !important;
+    --main5: #ddb3c5 !important;
+    --main6: #ffb3b6 !important;
+    /*
+     --main3: #29235C;
+     --white: #ffffff;
+     --gray: #8A8A8A;
+*/
+}
+
+.folder-theme {
+    color: var(--main);
+}
+
+.bg-theme {
+    background-color: var(--main);
+}
+
+.PopoversCard .title_ {
+    background: var(--main3);
+}
+
+.PopoversCard .title_ {
+    background: var(--main3) !important;
+}
+
+.period-bg {
+    background-color: none !important;
+}
+
+.day-bg {
+    background-color: none !important;
+}
+
+.btn-theme {
+    background-color: var(--main);
+}
+
+.option-check-box, .option-radio, .option-box {
+    border-color: #69b7e6;
+    background-color: #69b7e6;
+    color: white;
+}
+
+.option-check-box-checked, .option-radio-checked, .option-box-checked {
+    border-color: #1d81b9;
+    background-color: #1d81b9;
+    color: white;
+}
+
+    .option-check-box:hover, .option-radio:hover, .option-box:hover,
+    .option-check-box-checked:hover, .option-radio-checked:hover, .option-box-checked:hover {
+        background-color: #1e9de4;
+    }

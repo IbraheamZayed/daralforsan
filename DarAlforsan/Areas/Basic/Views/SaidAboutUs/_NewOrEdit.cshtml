@@ -1,0 +1,26 @@
+﻿@model ViewModels.Form.SaidAboutUs
+<form id="form-SaidAboutUs" name="form-SaidAboutUs" onkeypress="saidAboutUs.onformKeypress('form-SaidAboutUs',event)">
+    @Html.HiddenFor(model => model.ID)
+    <div class="form-row">
+        <div class="form-group col-md-12">
+            @Html.LabelFor(a => a.Name)
+            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control form-control-md" } })
+            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger d-none" })
+        </div>
+        <div class="form-group col-md-12">
+            @Html.TextAreaFor(model => model.MessageAr, new { @class = "form-control form-control-sm local-font", @rows = 4 })
+            @Html.ValidationMessageFor(model => model.MessageAr, "", new { @class = "text-danger  d-none" })
+        </div>
+        <div class="form-group col-md-12">
+            @Html.TextAreaFor(model => model.MessageEn, new { @class = "form-control form-control-sm local-font", @rows = 4 })
+            @Html.ValidationMessageFor(model => model.MessageEn, "", new { @class = "text-danger  d-none" })
+        </div>
+            <div class="col-md-12">
+            <partial name="~/Views/Shared/_Dropzone.cshtml" model='new ViewModels.Shared.Dropzone {AjaxLoad = true ,ID="FileName-attachment", TargetControl="Img", MaxFiles=1, AcceptedFiles="image/*"}' />
+            </div>
+            @Html.HiddenFor(model => model.Img)
+        </div>
+    <div class="cmd-wrapper">
+        <button type="button" onclick="saidAboutUs.save('form-SaidAboutUs')" class="btn btn-success"><i class="fas fa-check"></i> @CoreCommand.CmdSave </button>
+    </div>
+</form>

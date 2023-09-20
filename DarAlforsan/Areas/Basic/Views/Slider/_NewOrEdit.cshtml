@@ -1,0 +1,31 @@
+﻿@model ViewModels.Form.Slider
+<form id="form-Slider" name="form-Slider" onkeypress="slider.onformKeypress('form-Slider',event)">
+    @Html.HiddenFor(model => model.ID)
+    <div class="form-row">
+        <div class="form-group col-md-12">
+            @Html.LabelFor(a => a.TitleAr)
+            @Html.EditorFor(model => model.TitleAr, new { htmlAttributes = new { @class = "form-control form-control-md" } })
+            @Html.ValidationMessageFor(model => model.TitleAr, "", new { @class = "text-danger d-none" })
+        </div>
+        <div class="form-group col-md-12">
+            @Html.LabelFor(a => a.TitleEn)
+            @Html.EditorFor(model => model.TitleEn, new { htmlAttributes = new { @class = "form-control form-control-md" } })
+            @Html.ValidationMessageFor(model => model.TitleEn, "", new { @class = "text-danger d-none" })
+        </div>
+        <div class="form-group col-md-12">
+            @Html.TextAreaFor(model => model.DetailsAr, new { @class = "form-control form-control-sm local-font", @rows = 4 })
+            @Html.ValidationMessageFor(model => model.DetailsAr, "", new { @class = "text-danger  d-none" })
+        </div>
+        <div class="form-group col-md-12">
+            @Html.TextAreaFor(model => model.DetailsEn, new { @class = "form-control form-control-sm local-font", @rows = 4 })
+            @Html.ValidationMessageFor(model => model.DetailsEn, "", new { @class = "text-danger  d-none" })
+        </div>
+            <div class="col-md-12">
+            <partial name="~/Views/Shared/_Dropzone.cshtml" model='new ViewModels.Shared.Dropzone {AjaxLoad = true ,ID="FileName1-attachment", TargetControl="Img", MaxFiles=1, AcceptedFiles="image/*"}' />
+            </div>
+            @Html.HiddenFor(model => model.Img)
+        </div>
+    <div class="cmd-wrapper">
+        <button type="button" onclick="slider.save('form-Slider')" class="btn btn-success"><i class="fas fa-check"></i> @CoreCommand.CmdSave </button>
+    </div>
+</form>

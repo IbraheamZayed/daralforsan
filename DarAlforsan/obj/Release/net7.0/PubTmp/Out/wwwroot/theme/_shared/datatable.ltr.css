@@ -1,0 +1,120 @@
+﻿/*Search div*/
+.dataTables_filter {
+    float:right;
+}
+.ui.celled.table tr td, .ui.celled.table tr th {
+    border-left: 1px solid rgba(34,36,38,.1) !important;
+}
+
+/*align content right to all content except td with class grid-cmd*/
+.dataTable tr td:not(.grid-cmd) {
+    text-align: right;
+}
+
+.dataTable tr td {
+    color: #707070;
+}
+/*alternate row color*/
+.even {
+    background-color: #f6f6f6;
+}
+
+ .odd:hover, .even:hover {
+        background-color: #eeeeee;
+        /*background-color: #e8f3ff;*/
+    }
+
+.dataTable tr th {
+    font-family: hb !important;
+    border-top: none !important;
+    /*color: #1a83ee !important;*/
+}
+
+.ui.table thead th {
+    background: #ececec !important;
+}
+
+.ui.grid {
+    margin: 0px !important;
+}
+
+.dataTables_filter input[type=search] {
+    padding: 5px !important;
+    margin-right: 5px !important;
+    text-align: right !important;
+}
+/*Filter Section float left*/
+.dataTables_filter label {
+    float: left;
+}
+
+div.grid div[class=row]:first-child {
+    padding: 0px;
+}
+
+div.dropdown {
+    max-height: 30px;
+    min-height: 30px !important;
+}
+
+.paginate_button {
+    height: 20px;
+}
+
+    .paginate_button.previous, .paginate_button.next {
+        font-family: hb;
+    }
+
+.pagination.menu {
+    min-height: 27px !important;
+    max-height: 27px;
+    float: left;
+    margin-left: 5px !important;
+}
+
+div.dataTables_wrapper div.dataTables_info {
+    /*padding-top: 0px !important;*/
+}
+
+div.dataTables_paginate {
+    margin-top: -20px;
+}
+.ui.pagination.menu{
+    float:right;
+}
+/*Paging Align*/
+.ui.grid > .row > [class*="right aligned"].column.column, .ui.grid > [class*="right aligned"].column.column, .ui.grid > [class*="right aligned"].row > .column, .ui[class*="right aligned"].grid > .column, .ui[class*="right aligned"].grid > .row > .column {
+    text-align: left !important;
+}
+
+/*Custom*/
+table.dataTable th {
+    border-bottom: none !important;
+    border-left: 1px solid #e1e1e1 !important;
+}
+
+table.dataTable td {
+    border-left: 1px solid #e5e5e5 !important;
+    border-top: 1px solid #e5e5e5 !important;
+}
+
+    table.dataTable td:last-child, table.dataTable th:last-child {
+        border-left-width: 0px !important;
+    }
+/*Overide bootstap td top align*/
+table.dataTable td {
+    vertical-align: middle !important;
+}
+table.dataTable.table td{
+    text-align:justify;
+}
+
+/*Hide JQuery Data Table Spinner*/
+.dataTables_processing {
+    visibility: hidden;
+}
+/*Font Size*/
+
+.ui.table td {
+    padding: 6px !important;
+}

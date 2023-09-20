@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20.528" height="16.274" viewBox="0 0 20.528 16.274">
+  <g id="Group_6492" data-name="Group 6492" transform="translate(-1077.372 -609)">
+    <g id="Group_1970" data-name="Group 1970" transform="translate(1077.372 609)">
+      <path id="Icon_awesome-user" data-name="Icon awesome-user" d="M10.632,20.25h-.566a5.9,5.9,0,0,1-4.943,0H4.557A4.558,4.558,0,0,0,0,24.807v1.41a1.628,1.628,0,0,0,1.627,1.627H13.561a1.628,1.628,0,0,0,1.627-1.627v-1.41A4.558,4.558,0,0,0,10.632,20.25Z" transform="translate(0 -11.571)" fill="#345fb4"/>
+      <path id="Icon_awesome-user-2" data-name="Icon awesome-user" d="M11.09,8.679A4.34,4.34,0,1,0,6.75,4.34,4.339,4.339,0,0,0,11.09,8.679Z" transform="translate(-3.495 0)" fill="#345fb4"/>
+      <path id="Icon_awesome-user-lock" data-name="Icon awesome-user-lock" d="M32.137,12.426h-.923V10.713C31.213,9.767,30.18,9,28.905,9S26.6,9.767,26.6,10.713v1.713h-.923c-.51,0-.923.307-.923.685v3.426c0,.378.413.685.923.685h6.463c.51,0,.923-.307.923-.685V13.111C33.06,12.733,32.647,12.426,32.137,12.426Zm-3.232,3.083c-.51,0-.923-.307-.923-.685s.413-.685.923-.685.923.307.923.685S29.415,15.509,28.905,15.509Zm.923-3.083H27.982V10.713c0-.378.413-.685.923-.685s.923.307.923.685Z" transform="translate(-12.532 -0.948)" fill="#12c9cf"/>
+    </g>
+  </g>
+</svg>

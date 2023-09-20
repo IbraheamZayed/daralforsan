@@ -1,0 +1,35 @@
+﻿@{
+    string Lang = Core.UI.Locals.IsLocal ? "ar" : "en";
+}
+<button class="TimeLogin p-0 dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+    <div><img src="~/web/imgs/Group%206481.svg" class="img-fluid"></div>
+    @*    <aside class="white-color">@CoreMessage.TimeNow</aside>
+    *@    <div class="align-items-center main4-back" id="current-time"></div>
+</button>
+<div class="dropdown-menu">
+    <div class="p-2">
+        <img src="~/web/imgs/time.png" class="Imgdropdown">
+        <hr class="my-2">
+        <div>
+            <div class="dropdown-item">
+                <img src="~/web/imgs/Group%206481.svg" width="17px" height="17px">
+                <div class="Chose_">
+                    <span class="mx-1">@CoreMessage.LoginTime </span>
+                    <span class="text-success" id="LoginTime"></span>
+                </div>
+            </div>
+            <div class="dropdown-item">
+                <img src="~/web/imgs/Group%206481.svg" width="17px" height="17px">
+                <div class="Chose_">
+                    <span>@CoreMessage.LoginDuration </span>
+                    <span class="text-warning" id="DurationTime"></span>
+                    <span class="text-success">@CoreMessage.Minute</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+</script>

@@ -1,0 +1,149 @@
+﻿@*@inject Services.Cart _cart;*@
+@{
+    var UserName = ""; //Core.UI.Locals.IsLocal ? Context.GetClaimValue(Core.Security.Extensions.ClaimTypes.LocalName) : Context.GetClaimValue(Core.Security.Extensions.ClaimTypes.LatinName);
+    //var Notification = new Services.Notification(Context.GetCurrentBranchID(), Context.GetCurrentUserID(), Core.UI.Locals.IsLocal ? "a" : "en");
+    //int NotificationCount = Notification.GetNotificationCount();
+    int Ar = 1;
+    int En = 2;
+    string CurrentLang = "ar"; //Context.GetCurrentLanguage();
+    //int CartCount = _cart.UserCartCount();
+    bool EnableChat = Convert.ToBoolean(Config["AppSettings:EnableChatCompetation"]);
+}
+<div class="d-flex justify-content-between">
+    <a href="#" class="btn_terminal " id="tooltip" role="tooltip">
+        <i class="fas fa-bars terminalicon main-menu"></i>
+        <i class="@(@*Core.UI.Locals.IsLocal*@ true ? "fas fa-arrow-left" : "fas fa-arrow-right") arrowicon d-none main-menu"></i>
+    </a>
+    <div class="top_links_HED">
+        <div class="header-group">
+            <vc:branch-dropdown></vc:branch-dropdown>
+        </div>
+        @if (EnableChat)
+        {
+            <div class="header-group">
+                <aside class="open_lists cmd open_chat_users" onclick="location.href='/Chat/Chat/Index'">
+                    <span class="noti_NU notfication-counter default-font" id="unSeenMsgCount"></span>
+                    <i class="far fa-comments"></i>
+                </aside>
+            </div>
+        }
+        <div>
+            <div class="cart-items cmd" onclick="location.href='/OnlineStore/Cart/MyCart'">
+                @*@if (CartCount > 0)
+                {
+                    <span class="cart_NU  default-font text-orange">@CartCount</span>
+                }
+                else
+                {*@
+                    <span class="cart_NU  default-font text-orange"></span>
+                @*}*@
+                <i class="fal fa-cart-arrow-down"></i>
+            </div>
+        </div>
+        <div>
+            <aside class="open_lists cmd">
+                @*@if (NotificationCount > 0)
+                {
+                    <span class="noti_NU notfication-counter default-font">@NotificationCount</span>
+                }*@
+                <i class="fas fa-bell"></i>
+            </aside>
+            <div class="lists_top_links2 outer_lists">
+                <div class="notfication-wrapper">
+                    <h>
+                        <span class="default-font">@CoreMessage.UserNotification</span>
+                    </h>
+                </div>
+                <div class="tabs_header_">
+                    <div class="tab-pane_ tab-pane_1">
+                        @*<vc:user-notification is-new-theme="false"></vc:user-notification>*@
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+           
+            <div class="lists_top_links outer_lists @(@*Core.UI.Locals.IsLocal*@ true ?Core.UI.UIDirection.RTL:Core.UI.UIDirection.LTR)">
+                <div class="notfication-wrapper">
+                   
+                        <img src="~/FileStorage/avater.png" class="p-1" />
+                    <div class="default-font">
+                        <span class="default-font text-theme">@CoreKeyword.WelcomeText</span>  <span class="default-font text-theme"> @*@(UserName.Contains(" ") ? UserName.Substring(0, UserName.IndexOf(" ")) : UserName)*@</span>
+                    </div>
+                </div>
+                <ul>
+                    <li>
+                        <a class="item " href="~/Account/setting">
+                            <span class=" default-font">
+                                <i class="fas fa-pencil-alt">
+                                </i>
+                                @CoreMessage.UserProfile
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="item open_setting">
+                            <span class=" default-font">
+                                <i class="fas fa-cog ">
+                                </i>
+                                @CoreMessage.UserInterFace
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="item " href="/common/Account/ChangePassword">
+                            <span class=" default-font">
+                                <i class="fas fa-lock">
+                                </i>
+                                @CoreMessage.ChangePassword
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="item" href="/common/Account/ChangeTheme?Theme=darsnew-1">
+                            <span class=" default-font">
+                                <i class="fas fa-th fa-menu-item text-theme "></i>
+
+                                @DBResources.IntrnalDashboard.DarsNewStyle2
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <div class="item text-center d-block p-2">
+                            <button class="btn   @(CurrentLang=="ar"?"btn-theme mx-2":"btn-secondary ")   btn-60 " onclick="changeUILanguage(@Ar)">
+                                <span style="vertical-align: text-top;">@CoreMessage.ArabicTitle</span>
+                            </button>
+                            <button class="btn @(CurrentLang =="en"?"btn-theme mx-2":"btn-secondary ")  btn-60 " onclick="changeUILanguage(@En)">
+                                <span style="vertical-align: -webkit-baseline-middle;">@CoreMessage.EnglishTitle</span>
+                            </button>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="text-center p-2">
+                            <a class="btn btn-danger text-white" onclick="return confirm('@DBResources.Security.ConfirmLogout');" href="/Common/Account/Logout"><i class="fa fa-sign-out-alt"></i> @DBResources.CoreCommand.CmdLogout</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div>
+            <aside class="open_lists cmd" title="@DBResources.CoreCommand.CmdLogout">
+                <a href="/Common/Account/Logout" onclick="return confirm('@DBResources.Security.ConfirmLogout');">   <i class=" fa fa-sign-out-alt log-out-icon-color  header-icon"></i></a>
+            </aside>
+
+        </div>
+    </div>
+</div>
+<div class="setting_fixed">
+    <div class="notfication-wrapper">
+        <div class="default-font">
+            @CoreMessage.UserInterFace
+        </div>
+    </div>
+    <ul>
+        <li>
+            <partial name="_ThemeSelector" />
+        </li>
+    </ul>
+    <button class="close_setting"><i class="far fa-times-circle"></i></button>
+</div>

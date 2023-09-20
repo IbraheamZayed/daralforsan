@@ -1,0 +1,207 @@
+﻿<!DOCTYPE html>
+<html>
+@{
+    string ScriptVersion = Versioning.Js.GetCurrent(Config);
+    string StyleVersion = Versioning.Css.GetCurrent(Config);
+    string Lang = Core.UI.Locals.IsLocal ? "ar" : "en";
+    string Theme = "";
+    try
+    {
+        Theme = !Context.GetCurrentTheme().Contains("darsnew") ? "blue" : Context.GetCurrentTheme();
+    }
+    catch
+    {
+        Theme = "darsnew-1";
+    }
+}
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="~/web/css/bootstrap.min.css">
+
+    <title> @ViewData["Title"]</title>    <!-- title logo -->
+    <link rel="icon" href="~/web/imgs/login.jpeg" type="image/x-icon" />
+    <partial name="_Styles" />
+    <link rel="stylesheet" href="~/web/css/all.min.css">
+
+    @RenderSection("styles", false)
+    <link rel="stylesheet" href="@("/web/css/"+Theme).css?v=@StyleVersion">
+    <partial name="_HeadScripts" />
+</head>
+<body>
+    <partial name="_Spinner" />
+    <partial name="_Header2" />
+    <div class="navMenu_ active">
+        <div class="px-2">
+            <button type="button" class="open_nav active">
+                <i class="fas fa-th"></i>
+                <i class="fas fa-list"></i>
+            </button>
+        </div>
+       @* <ul class="NavMenu_Links">
+            <vc:sub-menu></vc:sub-menu>
+        </ul>*@
+    </div>
+    <div class="body-content">
+        <div>
+            <div class="navtopDashbord">
+                <div class="BreadcrumbTitles">
+                    <a class="the_title active">
+                        <div class="img_"></div>
+                        <span id="subMenuTitle"></span>
+                        <button type="button" class="showTitlesBreadcrumb"><i class="fas fa-angle-left"></i></button>
+                    </a>
+                    @*<vc:base-menu is-list-items="true" is-from-home="false"></vc:base-menu>*@
+                </div>
+
+                <div class="d-flex align-items-center flex-shrink-0 header-menu">
+                    <div>
+                        <partial name="_LoginTime" />
+                    </div>
+                    <div>
+                        <a href="/Home/Index2" class="btnn_">
+                            <i class="fas fa-home"></i>
+                        </a>
+                    </div>
+                    <div>
+                        <button class="dropdown-toggle btnn_" type="button" data-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-th-large"></i>
+                        </button>
+                        <div class="dropdown-menu">
+                            <div class="header_dropdown-menu">
+                                <div class="title_">
+                                    القائمة الرئيسية
+                                </div>
+                            </div>
+                            <div class="p-2">
+                                <div class="theTabsDropdown">
+                                    <div class="tab_1">
+                                        <div class="cardsLinkDrobdown">
+                                            @*<vc:base-menu is-list-items="false" is-from-home="false"></vc:base-menu>*@
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="footer_dropdown-menu py-1 justify-content-between">
+                                <div class="d-flex align-items-center">
+                                    <div class="imgUser">
+                                    </div>
+                                    <a href="/Common/Account/Logout" onclick="return confirm('@DBResources.Security.ConfirmLogout');" class="font-11 mx-2 f-b"><span>@DBResources.CoreCommand.CmdLogout</span> <img src="~/web/imgs/Group%206475.svg" class="img-fluid"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="main" class="active">
+                <div class="chart-content">
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="~/web/js/popper.min.js?v=@ScriptVersion"></script>
+    <script src="~/web/js/bootstrap.min.js?v=@ScriptVersion"></script>
+    <div id="modalconfirmation" class="modal-confirmation">
+        <form class="modal-content" action="/action_page.php">
+            <div class="container">
+                <p class="my-4 text-center">@CoreMessage.ConfirmOperation</p>
+                <div class="cmd-wrapper">
+                    <button type="button" id="confirmNo" class="btn btn-orange">@CoreCommand.CmdCancel</button>
+                    <button type="button" id="confirmYes" class="btn btn-success my-1">@CoreCommand.CmdOk</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <partial name="_Scripts" />
+    @*<partial name="_SessionTimeout" />*@
+    @await Html.PartialAsync("_Modal", new Models.Core.ModalParams { ID = "CKAudioModal", BodyID = "CKAudioContent", Title = CKeditor.AddAudio, Content = "", BackDrop = true, Keyboard = true })
+    @await Html.PartialAsync("_Modal", new Models.Core.ModalParams { ID = "CKImageModal", BodyID = "CKImageContent", Title = CKeditor.AddImage, Content = "", BackDrop = true, Keyboard = true })
+
+    <!-- plugins JS -->
+    <!-- my JS -->
+    @RenderSection("scripts", required: false)
+    <script>
+        $(function () {
+            var title = document.cookie.match(new RegExp('(^| )' + 'SubMenuTitle' + '=([^;]+)'));
+            var img = document.cookie.match(new RegExp('(^| )' + 'SubMenuImg' + '=([^;]+)'));
+            if (title) {
+                $("#subMenuTitle").html(title[2]);
+            }
+            if (img) {
+                $("#SubMenuImg").attr('src', '/FileStorage/' + img[2])
+            }
+            $("#LoginTime").text(`${localStorage.getItem('LoginTime')}`);
+            $("#DurationTime").text(`${DateFormat.getDiffMinutes(new Date(), localStorage.getItem('LoginDateTime'))}`);
+            $("#current-time").text(`${DateFormat.getTime(new Date(), "@Lang")}`);
+        }
+        );
+
+        $(".dropdown-item .Chose_").on("click", function (e) {
+            e.stopPropagation();
+        })
+        $(".open_nav").on("click", function () {
+            $(this).toggleClass("active");
+            if ($(this).hasClass("active")) {
+                $(".navMenu_ , #main").addClass("active")
+            } else {
+                $(".navMenu_ , #main").removeClass("active")
+            }
+        });
+
+        $(".btnTaggleTabs").on("click", function (e) {
+            e.stopPropagation();
+            $(this).toggleClass("active");
+            if ($(this).hasClass("active")) {
+                $(".theTabsDropdown").addClass("active")
+            } else {
+                $(".theTabsDropdown").removeClass("active")
+            }
+        });
+
+        $(document).on("click", ".NavMenu_Links > li > .LinkTo_", function (e) {
+            e.preventDefault();
+            $(this).toggleClass("Notactive");
+            $(this).next(".drobMenuLinks").slideToggle();
+        });
+
+        $(".showTitlesBreadcrumb").on("click", function (e) {
+            e.stopPropagation();
+            $(this).toggleClass("active");
+            if ($(this).hasClass("active")) {
+                $(this).parents(".BreadcrumbTitles").addClass("active");
+            } else {
+                $(this).parents(".BreadcrumbTitles").removeClass("active");
+            }
+        });
+
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        });
+
+        $(".navtopDashbord .the_title.active").on("click", function () {
+            $(this).toggleClass("active2");
+            if ($(this).hasClass("active2")) {
+                $(".navMenu_ , #main").addClass("active2")
+            } else {
+                $(".navMenu_ , #main").removeClass("active2")
+            }
+        });
+
+
+        $(document).ready(function () {
+            "use strict";
+            $(".drobMenuLinks a").each(
+                function () {
+                    if (window.location.href.includes($(this).attr('href'))) {
+                        $(this).addClass("active");
+                        $(this).parent().parent('.drobMenuLinks').slideDown("");
+                        $(this).parent().parent('.drobMenuLinks').prev(".LinkTo_").addClass("Notactive");
+                    }
+                }
+            );
+        });
+    </script>
+</body>
+</html>

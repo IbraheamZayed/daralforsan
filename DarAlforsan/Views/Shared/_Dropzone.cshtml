@@ -1,0 +1,38 @@
+﻿@model ViewModels.Shared.Dropzone
+@{ 
+    string messageTitle = String.IsNullOrEmpty(Model.MessageTile) ? DropZone.DropFileHere : Model.MessageTile;
+}
+@if (Model.AjaxLoad)
+{
+    <div class="clsbox-1" runat="server">
+        <div class="dropzone" ajax  max-files="@Model.MaxFiles" upload-url="@Model.UploadUrl" target-control="@Model.TargetControl" accepted-files="@Model.AcceptedFiles"  message-title="@messageTitle" id="@Model.ID">
+
+        </div>
+    </div>
+}
+else
+{
+    <div class="clsbox-1" runat="server">
+        <div class="dropzone" id="@Model.ID">
+
+        </div>
+    </div>
+}
+
+
+@if (!Model.AjaxLoad)
+{
+
+<script>
+    //----------------------------------------------------------------------------------
+        document.addEventListener("DOMContentLoaded", function () {
+            if (DragDrop.dropZoneResourece == null)
+            {
+                DragDrop.dropZoneResource = new DropZoneResource("@Html.Raw(DropZone.FileTooBig)", "@Html.Raw(DropZone.InvalidFileType)", "@Html.Raw(DropZone.ResponseError)", "@Html.Raw(DropZone.CancelUpload)", "@Html.Raw(DropZone.CancelUploadConfirmation)", "@Html.Raw(DropZone.RemoveFile)", "@Html.Raw(DropZone.MaxFilesExceeded)");
+            }
+            var messageTitle = "@Html.Raw(messageTitle)";
+            new FileDropZone("@Html.Raw(Model.ID)", "@Html.Raw(Model.TargetControl)", messageTitle,DragDrop.dropZoneResource,"@Model.UploadUrl","@(Model.AcceptedFiles)",@(Model.MaxFiles));
+        });
+    //----------------------------------------------------------------------------------
+</script>
+}

@@ -1,0 +1,216 @@
+﻿@inject Services.SocialMedia _socialMedia;
+@{
+    var socialMedia = _socialMedia.GetAll();
+}
+
+<!doctype html>
+<html lang="ar">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/css/all.min.css" rel="stylesheet" />
+    <link href="~/css/animate.css" rel="stylesheet" />
+    <!-- plugins CSS -->
+    <link href="~/plugins/owl-carousel/css/owl.carousel.min.css" rel="stylesheet" />
+    <link href="~/plugins/news-ticker/css/style.css" rel="stylesheet" />
+    <!-- my CSS -->
+    <link href="~/css/style.css" rel="stylesheet" />
+    <!--<link rel="stylesheet" href="css/style-ltr.css">-->
+    <title></title>
+    <!-- title logo -->
+    <link rel="icon" href="~/imgs/logo.png" type="image/x-icon" />
+    @RenderSection("styles", false)
+</head>
+<body>
+    <header>
+        <div class="top_header">
+            <!-- <div class="acme-news-ticker"> -->
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-2 col-sm-1 text-center my-2">
+                        <a href="index.html"><img src="~/imgs/logo.png" class="the_logo"></a>
+                    </div>
+                    <div class="col-md-3 col-sm-1 text-center my-2">
+                        <a href="#" class="btn-main">سجل فى مدارسنا</a>
+                    </div>
+                    <div class="col-md-3 col-sm-1 text-center my-2">
+                        <a href="" class="font-13">
+                            <img src="~/imgs/location.png" class="location-title">
+                            جده المملكة العربية السعودية
+                        </a>
+                    </div>
+                    <div class="col-md-3 col-sm-1 text-center mx-4">
+                        <div>
+                            96584522
+                        </div>
+                        <div>
+                            <ul class="social_media d-flex">
+                                @foreach (var item in socialMedia)
+                                {
+                                    <li><a href="@item.Url"><img src="~/FileStorage/@item.Img"></a></li>
+                                }
+                                @* <li><a href=""><img src="~/imgs/facebook_R.png"></a></li>
+                                <li><a href=""><img src="~/imgs/twitter_R.png"></a></li>
+                                <li><a href=""><img src="~/imgs/linkedin_R.png"></a></li>
+                                <li><a href=""><img src="~/imgs/snapchat_R.png"></a></li>
+                                <li><a href=""><img src="~/imgs/insta_R.png"></a></li> *@
+                            </ul>
+                        </div>
+                       @* <div>
+                            <a onclick="contactUs.initAdd()" class="btn-main"> تواصل معنا</a>
+                        </div>*@
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="acme-news-ticker-label">أخبار اليوم</div>
+            <div class="acme-news-ticker-box">
+                <ul class="my-news-ticker">
+                    <li>
+                        <a href="#">تم بحمد الله عقد شراكه مع مدارس دار الفرسان</a>
+                    </li>
+                    <li>
+                        <a href="#">تم بحمد الله عقد شراكه مع مدارس دار الفرسان</a>
+                    </li>
+                    <li>
+                        <a href="#">تم بحمد الله عقد شراكه مع مدارس دار الفرسان</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="acme-news-ticker-controls acme-news-ticker-horizontal-controls">
+                <span class="acme-news-ticker-arrow acme-news-ticker-prev"></span>
+                <span class="acme-news-ticker-pause"></span>
+                <span class="acme-news-ticker-arrow acme-news-ticker-next"></span>
+            </div> -->
+            <!-- </div> -->
+        </div>
+
+        <div class="under_header">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <a href="index.html"><img src="~/imgs/logo.png" class="the_logo"></a>
+                    <ul class="nav_bar">
+                        <li><a href="" data-link="About_academy">@DBResources.AboutSchool.PageTitle </a></li>
+                        <li><a href="" data-link="Academy_system">@DBResources.SchoolSystem.PageTitle</a></li>
+                        <li><a href="" data-link="statistics">@DBResources.Statistics.PageTitle</a></li>
+                        <li><a href="" data-link="news">@DBResources.News.PageTitle</a></li>
+                        <li><a href="" data-link="about_us">@DBResources.SaidAboutUs.PageTitle</a></li>
+                        <li><a href="" data-link="fruits_academy">@DBResources.SchoolFruits.PageTitle</a></li>
+                    </ul>
+                    <div class="d-flex align-items-center top_link">
+                        @if (Core.UI.Locals.IsLocal)
+                        {
+                            <a href="Common/Account/ChangeUILanguage?UILanguageID=2" class="btn-main lang">EN</a>
+                        }
+                        else
+                        {
+                            <a href="Common/Account/ChangeUILanguage?UILanguageID=1" class="btn-main lang">ع</a>
+                        }
+@*                        <a href="#" class="btn-main">تسجيل دخول</a>
+*@                        <div class="close-open-nav">
+                            <div>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Start body-content -->
+    <div class="body-content">
+        @RenderBody()
+        @await Html.PartialAsync("_Modal", new Models.Core.ModalParams { ID = "AddContactUs", BodyID = "divContactUsBody", Title = DBResources.ContactUs.PageTitle, Content = "", BackDrop = true, Keyboard = true, Size = Core.UI.ModalSize.Large })
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="info_footer">
+                        <div class="text-center"><a href="index.html"><img src="~/imgs/logo.png" class="logo_F"></a></div>
+                        <p>مدرسة ثنائية اللغة تعتمد على بناء طفل متوازن في اتقانه لمهارات اللغة العربية والإنجليزية معاً. نحن نؤمن بالنظرة الشمولية والمتوازنة بين التحصيل الأكاديمي والبناء الفكري وتطوير الشخصية لدى طلبتنا ونعتبرها أحد أهم مرتكزاتنا واهتماماتنا.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div>
+                        <h5 class="title_F">خريطة الموقع</h5>
+                        <div class="row justify-content-between">
+                            <ul class="col-5 links_footer">
+                                <li><a href="" data-link="About_academy">@DBResources.AboutSchool.PageTitle</a></li>
+                                <li><a href="" data-link="Academy_system">@DBResources.SchoolSystem.PageTitle</a></li>
+                                <li><a href="" data-link="statistics">@DBResources.Statistics.PageTitle</a></li>
+                                <li><a href="" data-link="news">@DBResources.News.PageTitle</a></li>
+                            </ul>
+                            <ul class="col-6 links_footer">
+                                <li><a href="" data-link="Calendar">التقويم</a></li>
+                                <li><a href="" data-link="the_library">المكتبة</a></li>
+                                <li><a href="" data-link="about_us">@DBResources.SaidAboutUs.PageTitle</a></li>
+                                <li><a href="" data-link="fruits_academy">@DBResources.SchoolFruits.PageTitle</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div>
+                        <h5 class="title_F">تابعنا عبر</h5>
+                        <ul class="social_media d-flex">
+                            @foreach (var item in socialMedia)
+                            {
+                                <li><a href="@item.Url"><img src="~/FileStorage/@item.Img"></a></li>
+                            }
+                            @* <li><a href=""><img src="~/imgs/facebook_R.png"></a></li>
+                            <li><a href=""><img src="~/imgs/twitter_R.png"></a></li>
+                            <li><a href=""><img src="~/imgs/linkedin_R.png"></a></li>
+                            <li><a href=""><img src="~/imgs/snapchat_R.png"></a></li>
+                            <li><a href=""><img src="~/imgs/insta_R.png"></a></li> *@
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="undr_footer">جميع الحقوق محفوظه <i class="far fa-copyright"></i> <span class="f-b"><a href="index.html">لاكاديميه دار الفرسان</a> 2023</span></div>
+    </footer>
+
+
+    <a href="https://web.whatsapp.com/" target="_blank" class="icon_whatsapp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <a class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+    <!--========================== Start Loading Page ======================-->
+
+    <div class="loader">
+        <img src="~/imgs/logo.png" alt="">
+    </div>
+
+    <!--========================= End Loading Page =========================-->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/wow.min.js"></script>
+
+    <!-- plugins JS -->
+    <script src="plugins/owl-carousel/js/owl.carousel.min.js"></script>
+    <script src="plugins/countup/jquery.countup.min.js"></script>
+    <script src="plugins/countup/jquery.waypoints.min.js"></script>
+    <script src="plugins/news-ticker/js/acmeticker.js"></script>
+
+    <!-- my JS -->
+    <script src="js/main.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+    <script type="text/javascript">
+        $.fn.bsModal = $.fn.modal.noConflict();
+    </script>
+    @RenderSection("scripts", required: false)
+    <script src="~/module/basic/contactus.js"></script>
+</body>
+</html>

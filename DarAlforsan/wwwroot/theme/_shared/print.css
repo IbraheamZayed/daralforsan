@@ -1,0 +1,39 @@
+﻿/*@media print {
+    
+}*/
+@page{
+    size:auto;
+}
+.noprint {
+    display: block;
+}
+.page-wrapper {
+    padding-top: 0px;
+    margin:0px;
+}
+.content-wrapper{
+    padding:0px;
+    margin:0px;
+}
+
+.print-content {
+    /*border: 1px solid #ebeaea;*/
+    background-color: white;
+    border-radius: 3px;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 15px;
+}
+.print-header-img {
+    width: 100%;
+}
+
+
+@media print {
+  
+    .in-printable {
+        display: none;
+    }
+   
+}
+

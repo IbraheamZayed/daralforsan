@@ -1,0 +1,142 @@
+﻿$default-font-name: hb;
+$direction: rtl;
+$float: right;
+$text-align:left;
+/*Side Menu*/
+$side-menu-width: 230px;
+
+//default font 
+.default-font
+{
+    font-family:$default-font-name;
+}
+
+%html-body-shared {
+    direction: $direction;
+    font-family: $default-font-name !important;
+}
+
+html {
+    @extend %html-body-shared;
+}
+
+body {
+    @extend %html-body-shared;
+}
+
+.dir {
+    direction: $direction;
+}
+
+.sidebar-nav .metismenu {
+    text-align:right;
+}
+
+@media (min-width: 768px) {
+    .page-wrapper {
+        margin-right: $side-menu-width;
+    }
+}
+/*START:Header & Footer*/
+@media (min-width: 768px) {
+    .footer-fixed {
+       padding-right:$side-menu-width;
+    }
+}
+
+@media (min-width: 768px) {
+    .header-fixed {
+        left: 0px;
+    }
+}
+/*END:Header & Footer*/
+
+/*START:FORM*/
+label {
+    float: $float;
+}
+/*END:FORM*/
+
+.list-cmd-wrapper {
+    text-align: $text-align;
+}
+
+.q-action-wrapper {
+    right: 0px;
+}
+
+/*Data Table Local & Latin Column Name*/
+td.latin-column, th.latin-column {
+    display: none;
+}
+table.dataTable{
+    width:100% !important;
+}
+
+/*Override Bootstrap*/
+//To Match Input size md
+%input-group
+{
+    height: 31.5px;
+    max-height: 31.5px;
+}
+.input-group-append,.input-group-prepend {
+    @extend %input-group;
+    border-top-left-radius: .25rem !important;
+    border-bottom-left-radius: .25rem !important;
+}
+.input-group .form-control {    
+    @extend %input-group;
+    border-radius: .25rem !important;
+}
+
+input[type=file]
+{
+    padding:1px;
+}
+
+input[type=number],select:not([multiple])
+{
+    min-height:28px !important;
+}
+
+/*Custom DateTime Picker Style*/
+.date-form-group {
+    text-align: right;
+}
+
+/*START:Select 2*/
+//selected item
+
+.select2 {
+    max-width: 100%;
+}
+
+.select2-results__options {
+    font-family: $default-font-name !important;
+    /* Because of the inclusion of Bootstrap */
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    text-align: right;
+    padding: .25rem .5rem;
+}
+
+.select2-selection__rendered {
+    font-family: $default-font-name !important;
+    padding-left: 1px;
+    white-space: normal;
+    word-break: break-all;
+}
+/*END:Select 2*/
+
+/*START: Side Menu*/
+.sidebar-nav .metismenu a .menu-item-title {
+    padding-right: 0px;
+    transition: all 0.5s ease;
+}
+
+.sidebar-nav .metismenu a:hover .menu-item-title {
+    padding-right: 5px;
+    transition: all 0.5s ease;
+}
+/*END: Side Menu*/

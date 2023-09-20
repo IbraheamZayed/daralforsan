@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = CorePageTitle.AccessDenied;
+        if (Context.GetCurrentTheme().Contains("darsnew") || string.IsNullOrEmpty(Context.GetCurrentTheme()))
+    {
+        Layout = "~/Views/Shared/_NavMenuLayout2.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+}
+
+
+<div class="content-holder text-center danger-custom">
+    <div style="margin:10px"><i class="fa fa-lock fa-4x text-danger-custom"></i></div>
+    <span class="danger-custom" style="">@CoreMessage.AccessDenied</span>
+</div>

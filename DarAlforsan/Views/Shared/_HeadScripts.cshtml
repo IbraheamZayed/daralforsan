@@ -1,0 +1,6 @@
+﻿@{
+    string ScriptVersion = Versioning.Js.GetCurrent(Config);
+}
+<script src="~/lib/jquery/dist/jquery.min.js?v=@ScriptVersion"></script>
+<script src="~/js/utils.js?v=@ScriptVersion"></script>
+<script src="@Config["AppSettings/WIRIS"]"></script>

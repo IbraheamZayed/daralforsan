@@ -1,0 +1,463 @@
+﻿@{
+    var Direction = Core.UI.Locals.Direction;
+    string ScriptVersion = Versioning.Js.GetCurrent(Config);
+    bool IsLocal = Core.UI.Locals.IsLocal;
+    var lang = Context.GetCurrentLanguageIsoName();
+    bool EnableChat = Convert.ToBoolean(Config["AppSettings:EnableChatCompetation"]);
+}
+
+@* JQuery *@
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js?v=@ScriptVersion"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js?v=@ScriptVersion"></script>
+<script src="~/lib/jquery-ui/js/jquery-ui-1.12.1.min.js?v=@ScriptVersion"></script>
+<script src="~/Module/OnlineQuiz/jquery.ui.touch-punch.min.js?v=@ScriptVersion"></script>
+<script src="~/js/date_format.js?v=@ScriptVersion"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js?v=@ScriptVersion"></script>
+
+@* Bootstrap *@
+<script src="@("/lib/bootstrap.4.3." + (string.IsNullOrEmpty(Direction) ? "rtl" : Direction) + "/js/bootstrap.min.js")?v=@ScriptVersion"></script>
+
+@*DateTime Format for DataTable*@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js?v=@ScriptVersion"></script> <!--Format Dates-->
+@*@if (Core.UI.Locals.IsLocal)
+{*@
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/locale/ar-sa.js?v=@ScriptVersion" type="text/javascript"></script>
+@*}
+*@
+@*Jquery DataTable*@
+<script type="text/javascript">
+    //There is a conflict between jquery data table semantic ui style and bootstrap modal
+    //in order to resolve conflict you must write the following line before loading semantic scripts
+    $.fn.bsModal = $.fn.modal.noConflict();
+    //after that you can call bootstrap modal function .bsModal instead of modal
+</script>
+
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js?v=@ScriptVersion"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/dataTables.semanticui.min.js?v=@ScriptVersion"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js?v=@ScriptVersion"></script>
+
+<script src="https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js?v=@ScriptVersion"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.flash.min.js?v=@ScriptVersion"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js?v=@ScriptVersion"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js?v=@ScriptVersion"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js?v=@ScriptVersion"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.html5.min.js?v=@ScriptVersion"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.print.min.js?v=@ScriptVersion"></script>
+
+@*toaster*@
+<script src="~/lib/toastr/js/toastr.min.js?v=@ScriptVersion"></script>
+@*counterup*@
+<script src="~/lib/counterup/counterup.js?v=@ScriptVersion"></script>
+
+@*CKEditor*@
+
+@*v4*@
+<script src="~/lib/ckeditor/ckeditor.js?v=@ScriptVersion"></script>
+<script src="~/lib/ckeditor/adapters/jquery.js?v=@ScriptVersion"></script>
+
+
+@*File-Input*@
+<script src="~/lib/fileinput/js/fileinput.js?v=@ScriptVersion" type="text/javascript"></script>
+
+@* Side Menu *@
+<script src="~/lib/metismenu/js/metismenujs.min.js?v=@ScriptVersion"></script>
+
+@*Drop Down List Auto Complete*@
+<script src="~/lib/select2/js/select2.min.js?v=@ScriptVersion" type="text/javascript"></script>
+
+@* Chartjs *@
+<script src="~/lib/Chart.js/Chart.min.js?v=@ScriptVersion" type="text/javascript"></script>
+<script src="~/lib/Chart.js/Chart.build.js?v=@ScriptVersion" type="text/javascript"></script>
+
+@* TreeView JS *@
+@*<script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.3.8/jstree.min.js?v=@ScriptVersion"></script>*@
+<script src="~/lib/jstree/js/jstree.min.js?v=@ScriptVersion"></script>
+@*<script src="~/lib/jstree/js/TreeView.js"></script>*@
+
+
+@*Voice Recored*@
+<script src="https://cdn.webrtc-experiment.com/RecordRTC.js"></script>
+<script src="https://unpkg.com/@@mattiasbuelens/web-streams-polyfill/dist/polyfill.min.js"></script>
+<script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+<script src="https://www.webrtc-experiment.com/DetectRTC.js"></script>
+<script src="https://www.webrtc-experiment.com/getHTMLMediaElement.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+
+@*<script src="~/lib/voice-record/voice-record.js?v=@ScriptVersion"></script>*@
+@*SideMenu*@
+<script src="~/lib/signalr/dist/browser/signalr.min.js?v=@ScriptVersion"></script>
+@if (EnableChat)
+{
+    <script src="~/module/hubs/chathub.js?v=@ScriptVersion"></script>
+    <script>
+        lang = "@Html.Raw(lang)";
+    </script>
+}
+<script>
+    $(function () {
+        //build side menu
+        new MetisMenu('#SideMenu');
+        //build Burger menu
+        new MetisMenu('#BurgerMenu');
+
+        //Issue REF:https://github.com/onokumus/metismenu/issues/41
+        //get menu node that matches current navigation ref
+        var current = $('#SideMenu a[href="' + window.location.pathname + '" i]'); //i Means Ignore Case
+        //if not found , then check releted href
+        if (current.length == 0) {
+            current = $('#SideMenu a[rel-href*="' + window.location.pathname + '" i]');//i Means Ignore Case
+        }
+        //expand node
+        $(current)
+            .parents('ul')
+            .attr('aria-expanded', true)
+            .addClass('collapse' + ' ' + 'collapse in');
+
+        $(current)
+            .parents('li')
+            .attr('aria-expanded', true)
+            .addClass('active');
+
+        //set item background color
+        if (current.is(':visible')) {
+            $(current).addClass("current-node");
+        }
+
+        //set parent node background color
+        $('.metismenu li.active a').first().addClass("current-parent-node");
+
+        $("#maindiv").removeClass("d-none");
+        $('#spinner').hide();
+    });
+    spinner.enabled = true;
+    $('#spinner').show();
+    var unMinify = sessionStorage.getItem("UnMinify");
+    $(".btn_terminal").addClass(unMinify);
+    if ($(".btn_terminal").hasClass("active2")) {
+        $(".terminalicon").addClass("d-none");
+        $(".arrowicon").removeClass("d-none");
+        $(".side-menu-wrapper").addClass("active2");
+        $(".side-menu-wrapper").removeClass("active1");
+        $(".page-wrapper").addClass("active2");
+        $(".header-fixed").addClass("active2");
+        $(".switch > input[type='checkbox']").prop("checked", true);
+        $("#maindiv").removeClass("d-none");
+        $('#spinner').hide();
+        $(".menuitems").each(function (e) {
+            $(this).removeClass("in");
+        });
+        $(".today-wrapperDate").addClass("d-none");
+
+    } else {
+        $(".terminalicon").removeClass("d-none");
+        $(".arrowicon").addClass("d-none");
+        $(".side-menu-wrapper").removeClass("active2");
+        $(".page-wrapper").removeClass("active2");
+        $(".header-fixed").removeClass("active2");
+        $(".switch > input[type='checkbox']").prop("checked", false);
+        $(".today-wrapperDate").removeClass("d-none");
+    }
+</script>
+@*MessageBox*@
+<script>
+    //Display Modal MessageBox if Existing
+    $(document).ready(function () {
+        if ($('#MessageBox').length) {
+            //it should be modal but because of conflict between datatable symantic UI and bootstrap modal conflict
+            $('#MessageBox').bsModal({ keyboard: true });
+        }
+    });
+</script>
+
+@* Scroll To Top*@
+<script>
+    $(document).ready(function ($) {
+        if ($(".btn_terminal").hasClass("active2")) {
+            $(".menuitems").each(function (e) {
+                $(this).removeClass("in");
+            });
+        }
+        if ($(this).scrollTop() > 100) {
+            $('#scrollTop').fadeIn('slow');
+        }
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 100) {
+                $('#scrollTop').fadeIn('slow');
+            } else {
+                $('#scrollTop').fadeOut('slow');
+            }
+        });
+        $('#scrollTop').click(function () {
+            $("html, body").animate({ scrollTop: 0 }, 1000);
+            return false;
+        });
+    });
+</script>
+
+@*Initialize Data Table*@
+<script>
+    if ('@Html.Raw(IsLocal)' == "True")
+        $('.ckeditor').ckeditor({ language: 'ar' });
+    else
+        $('.ckeditor').ckeditor({ language: 'en' });
+    var selectedIDs = new Array();
+    var overrideDrawCallback = false;
+    function initDataTable(name, listUrl, editUrl, deleteUrl, deleteRangeUrl, columns, order, orderDir, pagenate = true, enterToSearch = false, yScroll = false) {
+        try {
+            //prepare data table
+            dataTable.table = $("#" + name + "").DataTable(
+                {
+                    "scrollY": yScroll ? "400px" : "",
+                    "scrollCollapse": yScroll,
+                    "bPaginate": pagenate,
+                    "bLengthChange": pagenate,
+                    "lengthMenu": [[2, 5, 10, 25, 50, 100, @int.MaxValue], [2, 5, 10, 25, 50, 100, "@Html.Raw(DBResources.DataTable.sAllRecords)"]], //page size options
+                    //scrollY: 200,//scroll and fix headers
+                    "serverSide": "true",
+                    "process`ing": "true",
+                    "language": {
+                        "sProcessing": '<i class="fa fa-spinner fa-spin fa-2x fa-fw loading"></i>',//"@Html.Raw(DataTable.sProcessing)"
+                        "sLengthMenu": "@Html.Raw(DataTable.sLengthMenu)",
+                        "sZeroRecords": "@Html.Raw(DataTable.sZeroRecords)",
+                        "sInfo": "@Html.Raw(DataTable.sInfo)",
+                        "sInfoEmpty": "@Html.Raw(DataTable.sInfoEmpty)",
+                        "sInfoFiltered": "@Html.Raw(DataTable.sInfoFiltered)",
+                        "sSearch": "@Html.Raw(DataTable.sSearch)",
+                        "sUrl": "@Html.Raw(DataTable.sUrl)",
+                        "oPaginate": {
+                        "sFirst": "@Html.Raw(DataTable.oPaginate_sFirst)",
+                        "sPrevious": "@Html.Raw(DataTable.oPaginate_sPrevious)",
+                        "sNext": "@Html.Raw(DataTable.oPaginate_sNext)",
+                        "sLast": "@Html.Raw(DataTable.oPaginate_sLast)"
+                    }
+        },
+        "ajax":
+        {
+            "url": listUrl,
+                "type": "POST",
+                    "datatype": "json",
+                        error: function (xhr, error, code) {
+                            if (xhr.status == 401) {
+                                window.location.href = "/common/account/login";
+                            }
+                            else if (xhr.status == 500) {
+                                console.log('Server Error');
+                            }
+                            else {
+                                console.log(xhr);
+                                console.log(error);
+                            }
+                        }
+        },
+        "drawCallback": function (settings) {
+            if (!overrideDrawCallback) {
+                //clear selection
+                selectedIDs = new Array();
+                //clear check status
+                toggleCheckAll();
+            }
+        },
+        "columns": columns,
+            "order": [order, orderDir],
+                initComplete: function () {
+                    //show filter panel
+                    $(".dataTables_filter").css("visibility", "visible");
+
+                    //Enable Enter to start seacrh feature
+                    if (enterToSearch) {
+                        $('#list_filter input').unbind();
+                        $('#list_filter input').bind('keyup', function (e) {
+                            if (e.keyCode == 13) {
+                                table.search(this.value).draw();
+                            }
+                        });
+                    }
+                },
+        dom: 'lBfrtip',
+            //"dom": '<"top"Bf>rt<"bottom"lip><"clear">',
+            // buttons: ['copy', 'csv', 'excel', 'pdf', 'print'],
+            buttons:
+        [
+            {
+                extend: 'excelHtml5',
+                exportOptions: {
+                    columns: ':not(.not-exportable)'
+                }
+            }
+        ]
+    });
+
+    $("#" + name + "").show();
+    //Delete Record
+    async function deleteRecord(ID) {
+        // the @@ syntax automatically HTML encodes and the solution is to use the Raw extension-method
+        const confirmd = await ui.confirm('Are you sure you want to do this?');
+        if (confirmd) {
+            var obj = { Value: ID };
+            $.ajax({
+                type: "POST",
+                url: deleteUrl,//action url
+                data: obj, //action params
+                success: function (result) {
+                    if (String(result.status) === EXResultStatus.Fail) {
+                        alert(result.message);
+                    }
+                    else {
+                        refreshDataTable();
+                    }
+                },
+                error: function (result, xhr, status, error) {
+
+                    alert("Result: " + status + " " + error + " " + xhr.status + " " + xhr.statusText);
+                }
+            });
+        }
+    }
+    //delete mutli record
+    async function deleteMultiRecord() {
+        selectedIDs;
+        const confirmd = await ui.confirm('Are you sure you want to do this?');
+        if (confirmd) {
+            var items = new Array();
+            selectedIDs.forEach(function (arrayItem) {
+                var obj = { Value: arrayItem };
+                items.push(obj);
+            });
+
+            $.ajax({
+                type: "POST",
+                url: deleteRangeUrl,//action url
+                data: JSON.stringify(items), //action params
+                contentType: "application/json; charset=utf-8",
+                success: function (result) {
+                    if (result.status == EXResultStatus.Fail) {
+                        alert(result.message);
+                    }
+                    else {
+                        refreshDataTable();
+                    }
+                },
+                error: function (xhr, status, error) {
+                    alert("Result: " + status + " " + error + " " + xhr.status + " " + xhr.statusText);
+                }
+            });
+        }
+    }
+    //Refresh Data Table
+    function refreshDataTable() {
+        $("#" + name + "").DataTable().ajax.reload(null, false);
+    }
+
+    //Single Click > Selected
+    $('#' + name + ' tbody').on('click', 'tr', function () {
+        //if item selected then deselect it ,if item not selected then select it
+        toggleItemCheck(this);
+    });
+
+    //Double Click > Edit
+    if (editUrl != '') {
+        //double click to edit
+        $('#' + name + ' tbody').on('dblclick', 'tr', function () {
+            var id = $(this).find("i.checker").attr("id");
+            window.location = editUrl + "?id=" + id;
+        });
+    }
+
+    //check one item
+    function toggleItemCheck(row) {
+        var item = $(row).find(".checker");
+        //switch check class
+        //item.toggleClass("checkbox-checked");
+        //get clicked item id
+        var id = item.attr("id");
+
+        //if item existing in list then remove it
+        if (selectedIDs.indexOf(id) != -1) {
+            uncheckOneItem(row);
+        }
+        else {
+            //add item to selected items list
+            checkOneItem(row);
+        }
+    }
+
+    function checkOneItem(row) {
+        var item = $(row).find(".checker");
+        //switch check class
+        item.addClass("checkbox-checked");
+
+        //get clicked item id
+        var id = item.attr("id");
+        //if item not existing in list then add it
+        if (selectedIDs.indexOf(id) == -1) {
+            selectedIDs.push(id);
+        }
+        toggleCheckAll();
+    }
+
+    function uncheckOneItem(row) {
+        var item = $(row).find(".checker");
+        //switch check class
+        item.removeClass("checkbox-checked");
+        //get clicked item id
+        var id = item.attr("id");
+        //if item not existing in list then remove it
+        if (selectedIDs.indexOf(id) != -1) {
+            selectedIDs.splice(selectedIDs.indexOf(id), 1);
+        }
+        toggleCheckAll();
+    }
+    //check all items
+    function checkAll() {
+        var rowscount = $('#' + name + '> tbody > tr').length;
+        //if all items not checked
+        if (selectedIDs.length != rowscount) {
+            $('#' + name + '> tbody > tr').each(function (index) {
+                checkOneItem(this);
+            });
+        }
+        //uncheck all
+        else {
+            $('#' + name + '> tbody > tr').each(function (index) {
+                uncheckOneItem(this);
+            });
+        }
+    }
+    function toggleCheckAll() {
+        var rowscount = $('#' + name + '> tbody > tr').length;
+        if (selectedIDs.length == rowscount) {
+            $('.allchecker').addClass('checkbox-checked');
+        }
+        else {
+            $('.allchecker').removeClass('checkbox-checked');
+        }
+    }
+    //make the function available in the global scope
+    window.deleteRecord = deleteRecord;
+    window.deleteMultiRecord = deleteMultiRecord;
+    window.refreshDataTable = refreshDataTable;
+    window.checkOneItem = checkOneItem;
+    window.checkAll = checkAll;
+    window.toggleCheckAll = toggleCheckAll;
+                        }
+                        catch (e) {
+        console.log(e);
+    }
+
+                        }
+</script>
+
+<script>
+    $(".select2").select2({
+        dir: "@Html.Raw(Direction)"
+    });
+</script>
+@* Start Idle *@
+<script>
+    idle.isEnabled = @Config["AppSettings:isIdleEnabled"].ToString().ToLower();
+</script>
+@* End Idle *@
+<script src="~/Module/ShortcutMenu/ShortcutMenu.js?v=@ScriptVersion"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.0/dropzone.js"></script>

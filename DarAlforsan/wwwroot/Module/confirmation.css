@@ -1,0 +1,41 @@
+﻿
+
+.modal-backdrop {
+    z-index: unset;
+    background-color: none !important;
+}
+
+.modal-confirmation {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    /* left: 25%;
+    top: 30%;*/
+    width: 40%;
+     height: 100%;
+    overflow: auto;
+    padding-top: 55px;
+    top: calc(50% - 230px) !important;
+    left: calc(50% - 378px) !important;
+}
+
+    .modal-confirmation .modal {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        width: 30%;
+        z-index: 1050;
+        display: none;
+        overflow: hidden;
+        outline: 0;
+    }
+
+    .modal-confirmation .modal-content {
+        background-color: #fefefe;
+        margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+        border: 1px solid #888;
+        width: 100%; /* Could be more or less, depending on screen size */
+    }

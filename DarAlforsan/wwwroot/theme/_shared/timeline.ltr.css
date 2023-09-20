@@ -1,0 +1,34 @@
+﻿ul.timeline {
+    list-style-type: none;
+    position: relative;
+}
+
+ul.timeline:before {
+    content: ' ';
+    background: #d4d9df;
+    display: inline-block;
+    position: absolute;
+    left: 22px;
+    width: 2px;
+    height: 100%;
+    z-index: 400;
+}
+
+ul.timeline > li {
+    margin: 10px 0;
+    padding-left: 10px;
+}
+
+    ul.timeline > li:before {
+        content: ' ';
+        background: white;
+        display: inline-block;
+        position: absolute;
+        border-radius: 50%;
+        border: 3px solid #ff6a00;
+        left: 15px;
+        width: 15px;
+        height: 15px;
+        z-index: 400;
+        margin-top: 9px;
+    }

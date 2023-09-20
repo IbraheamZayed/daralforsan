@@ -1,0 +1,16 @@
+D:\darsworck\DarAlforsan\DarAlforsan.Data\bin\Release\net7.0\DarAlforsan.Data.deps.json
+D:\darsworck\DarAlforsan\DarAlforsan.Data\bin\Release\net7.0\DarAlforsan.Data.runtimeconfig.json
+D:\darsworck\DarAlforsan\DarAlforsan.Data\bin\Release\net7.0\DarAlforsan.Data.dll
+D:\darsworck\DarAlforsan\DarAlforsan.Data\bin\Release\net7.0\DarAlforsan.Data.pdb
+D:\darsworck\DarAlforsan\DarAlforsan.Data\bin\Release\net7.0\Core.dll
+D:\darsworck\DarAlforsan\DarAlforsan.Data\obj\Release\net7.0\DarAlforsan.Data.csproj.AssemblyReference.cache
+D:\darsworck\DarAlforsan\DarAlforsan.Data\obj\Release\net7.0\DarAlforsan.Data.GeneratedMSBuildEditorConfig.editorconfig
+D:\darsworck\DarAlforsan\DarAlforsan.Data\obj\Release\net7.0\DarAlforsan.Data.AssemblyInfoInputs.cache
+D:\darsworck\DarAlforsan\DarAlforsan.Data\obj\Release\net7.0\DarAlforsan.Data.AssemblyInfo.cs
+D:\darsworck\DarAlforsan\DarAlforsan.Data\obj\Release\net7.0\DarAlforsan.Data.csproj.CoreCompileInputs.cache
+D:\darsworck\DarAlforsan\DarAlforsan.Data\obj\Release\net7.0\DarAlforsan.Data.csproj.CopyComplete
+D:\darsworck\DarAlforsan\DarAlforsan.Data\obj\Release\net7.0\DarAlforsan.Data.dll
+D:\darsworck\DarAlforsan\DarAlforsan.Data\obj\Release\net7.0\refint\DarAlforsan.Data.dll
+D:\darsworck\DarAlforsan\DarAlforsan.Data\obj\Release\net7.0\DarAlforsan.Data.pdb
+D:\darsworck\DarAlforsan\DarAlforsan.Data\obj\Release\net7.0\DarAlforsan.Data.genruntimeconfig.cache
+D:\darsworck\DarAlforsan\DarAlforsan.Data\obj\Release\net7.0\ref\DarAlforsan.Data.dll

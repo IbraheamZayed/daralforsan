@@ -1,0 +1,421 @@
+﻿$font-size: 10pt;
+$local-font-name: hb;
+$latin-font-name: Lato;
+
+$line-height: 1;
+
+/*Header-Footer*/
+$header-footer-bg-color: #eaeaea;
+$header-footer-border-color: #dad9d9;
+
+/*Header-LINK*/
+$header-icon-color: #999c9e;
+$header-link-font-size: 10pt;
+$header-link-text-color: #999c9e;
+$header-link-hover-text-color: #19aa8d;
+
+/*Logo*/
+$logo-bg-color: #4db8a9;
+$logo-wrapper-height: 150px;
+
+/*Today*/
+$today-bg-color: #2c9889;
+
+/*Side Menu*/
+$side-menu-width: 230px;
+$side-menu-bg-color: #48b3a4;
+$side-menu-hover-bg-color: #2e9283;
+$side-menu-selected-bg-color: #3aa797;
+$side-menu-selected-border-color: #f8bb1a;
+$side-menu-selected-border-width: 0px;
+$side-menu-current-node-bg-color: #209c8a;
+$side-menu-current-parent-node-bg-color: #228c7d;
+$side-menu-text-color: white;
+$side-menu-selected-text-color: white;
+$side-menu-icon-color: White;
+
+/*Site Map*/
+$sitemap-icon-color: #4db8a9;
+$sitemap-text-color: #2c9889;
+$sitemap-bg-color: white;
+$sitemap-font-size: 11pt;
+$sitemap-border-color: #e5e5e5;
+
+/*Form*/
+$label-text-color: #2c9889;
+$label-font-size: 10pt;
+
+/*Option Box*/
+//default
+$option-box-bg-color: #8ecbc2;
+$option-box-color: white;
+//selected
+$option-box-checked-bg-color: #2e9283;
+$option-box-checked-color: white;
+//hover
+$option-box-hover-bg-color: #4db8a9;
+$option-box-hover-color: white;
+
+/*Login*/
+$login-body-bg-color: white;
+$login-wrapper-bg-color: #ade7fb;
+$login-text-color: #0961c1;
+$login-btn-bg-color: #186ecc;
+$login-btn-hover-bg-color: #1373dc;
+$login-btn-border-color: #0e6acf;
+$login-btn-text-color: white;
+
+/*Buttons & Text & */
+$btn-font-size: 11pt;
+$btn-font-name: hb;
+$btn-width: 95px;
+
+/*Theme Button*/
+$btn-theme-bg-color: #48b3a4;
+$btn-theme-hover-bg-color: #55c1b2;
+$btn-theme-text-color: white;
+
+/*Theme*/
+$body-bg-color: #48b3a4;
+
+@font-face {
+    font-family: $local-font-name;
+    src: url('/fonts/HelveticaW23.ttf');
+}
+
+.local-font {
+    font-family: $local-font-name !important;
+}
+
+.latin-font {
+    font-family: $latin-font-name !important;
+    font-weight: 700;
+}
+
+.local-font-default-size {
+    font-size: $font-size;
+}
+
+* {
+    line-height: $line-height;
+}
+
+
+%html-body-shared {
+    font-family: $local-font-name;
+}
+
+html {
+    @extend %html-body-shared;
+    line-height: $line-height;
+}
+
+body {
+    @extend %html-body-shared;
+    background-color: $body-bg-color !important;
+}
+
+@media (min-width: 768px) {
+    .side-menu-wrapper {
+        width: $side-menu-width;
+    }
+}
+
+@media (min-width: 768px) {
+}
+
+/*Custom Panel*/
+.panel-theme {
+    background-color: $body-bg-color;
+    background: linear-gradient(60deg, #5ec7b9 50%,#69cec0 50%);
+    padding: 5px;
+    color: white;
+    border-radius: 2px;
+}
+/*END:Custom Panel*/
+/*START:Custom Theme Button*/
+.btn-theme {
+    background-color: $btn-theme-bg-color;
+    color: $btn-theme-text-color;
+}
+
+.btn-theme:hover {
+    background-color: $btn-theme-hover-bg-color !important;
+}
+/*End:Custom Theme Button*/
+
+/*START:Theme Text*/
+.text-theme {
+    color: $body-bg-color;
+}
+/*END*/
+
+/*START:Theme Background*/
+.bg-theme {
+    background-color: $body-bg-color;
+    background: linear-gradient(120deg, #69cec0 50%, #5ec7b9 50%);
+}
+/*END*/
+
+/*START:HEADER&FOOTER*/
+%header-footer {
+    background-color: $header-footer-bg-color;
+    border-color: $header-footer-border-color;
+}
+
+.header-wrapper {
+    @extend %header-footer;
+}
+
+.footer-wrapper {
+    @extend %header-footer;
+}
+/*END:HEADER&FOOTER*/
+
+/*START:HEADER LINK*/
+%header-link {
+    font-size: $header-link-font-size;
+}
+
+.header-icon {
+    color: $header-icon-color;
+}
+
+.header-link {
+    @extend %header-link;
+    color: $header-link-text-color;
+}
+
+.header-link:hover {
+    @extend %header-link;
+    color: $header-link-hover-text-color;
+}
+/*END:HEADER LINK*/
+
+/*START:LOGO*/
+.logo-wrapper {
+    background-color: $logo-bg-color;
+}
+
+.logo-inner-wrapper {
+    height: $logo-wrapper-height;
+}
+/*END:LOGO*/
+
+/*START:TODAY*/
+.today-wrapper {
+    background-color: $today-bg-color;
+}
+
+.q-action-wrapper {
+    background-color: $today-bg-color;
+}
+.filter-menu-search {
+    background-color: #42a395;
+    border: none !important;
+    outline: none !important;
+    color: white;
+    box-shadow: none;
+    border-color: inherit;
+    -webkit-box-shadow: none;
+}
+.filter-menu-search:focus {
+    background-color: #47a89a;
+    border: none !important;
+    outline: none !important;
+    color: white;
+    box-shadow: none;
+    border-color: inherit;
+    -webkit-box-shadow: none;
+}
+.filter-menu-search::placeholder {
+    font-family: FontAwesome;
+    color: white;
+}
+    @media (min-width: 768px) {
+        .q-action-wrapper {
+            width: $side-menu-width;
+        }
+    }
+    /*END:TODAY*/
+    /*START:SIDE MENU*/
+
+    .sidebar-nav {
+        background-color: $side-menu-bg-color;
+    }
+
+    .sidebar-nav .metismenu .active {
+        border-color: $side-menu-selected-border-color;
+        border-width: $side-menu-selected-border-width;
+        background-color: $side-menu-selected-bg-color;
+    }
+
+    .sidebar-nav .metismenu a {
+        color: $side-menu-text-color;
+    }
+
+    .sidebar-nav .metismenu a:hover,
+    .sidebar-nav .metismenu a:focus,
+    .sidebar-nav .metismenu a:active {
+        background: $side-menu-hover-bg-color;
+        color: $side-menu-selected-text-color;
+    }
+
+    .sidemenu-icon {
+        color: $side-menu-icon-color;
+    }
+
+    .current-node {
+        background-color: $side-menu-current-node-bg-color;
+    }
+
+    .current-parent-node {
+        background-color: $side-menu-current-parent-node-bg-color;
+    }
+    /*END:SIDE MENU*/
+    /*START:SITE MAP*/
+    .sitemap-wrapper {
+        background-color: $sitemap-bg-color;
+        color: $sitemap-text-color;
+        font-size: $sitemap-font-size;
+        border-bottom-color: $sitemap-border-color;
+    }
+
+    .sitemap-icon {
+        color: $sitemap-icon-color;
+    }
+    /*END:SITE MAP*/
+    /*START:FORM*/
+    label, .dataTables_info {
+        color: $label-text-color;
+        font-size: $label-font-size;
+    }
+    //Form Section Title
+    div.form-section-title {
+        color: #ffffff;
+        background-color: $body-bg-color;
+        background: linear-gradient(120deg, #69cec0 50%, #5ec7b9 50%);
+    }
+
+    hr.form-section-title {
+        background-color: #209c8a;
+    }
+    //Custom option Box Style
+    .option-check-box, .option-radio, .option-box {
+        border-color: $option-box-bg-color;
+        background-color: $option-box-bg-color;
+        color: $option-box-color;
+    }
+
+    .option-check-box-checked, .option-radio-checked, .option-box-checked {
+        border-color: $option-box-checked-bg-color;
+        background-color: $option-box-checked-bg-color;
+        color: $option-box-checked-color;
+    }
+
+    .option-check-box:hover, .option-radio:hover, .option-box:hover,
+    .option-check-box-checked:hover, .option-radio-checked:hover, .option-box-checked:hover {
+        //border-color: #1e9de4;
+        background-color: $option-box-hover-bg-color;
+    }
+
+    .option-box {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+
+    .option-box-checked {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+    /*END:FORM*/
+    /*START:DataTable*/
+    .loading {
+        color: $body-bg-color;
+    }
+
+    .checkbox-unchecked {
+        cursor: pointer;
+        color: #b1b1b1;
+    }
+
+    .checkbox-checked {
+        cursor: pointer;
+        color: $side-menu-bg-color;
+    }
+    /*End:DataTable*/
+    /*START:LOGIN PAGE*/
+    .login-body {
+        background-color: $login-body-bg-color;
+    }
+
+    .login-wrapper {
+        background-color: $login-wrapper-bg-color;
+    }
+
+    .login-wrapper {
+        label {
+            color: $login-text-color !important;
+        }
+    }
+
+    .login-wrapper {
+        button {
+            background-color: $login-btn-bg-color;
+            color: $login-btn-text-color;
+            border-color: $login-btn-border-color;
+        }
+
+        button:hover {
+            background-color: $login-btn-hover-bg-color;
+        }
+    }
+    /*END:LOGIN PAGE*/
+    /*START:BUTTONS*/
+    .btn {
+        font-family: $btn-font-name;
+        font-size: $btn-font-size !important;
+        min-width: $btn-width;
+    }
+    /*END:BUTTONS*/
+    /*START:SPINNER*/
+    .spinner {
+        border-top-color: $body-bg-color !important;
+    }
+    /*END:SPINNER*/
+    /*START:FILESTORAGE*/
+    .folder-theme {
+        color: #aee2db !important
+    }
+
+    .folder .label {
+        background-color: #46b5a6;
+    }
+    /*END:FILESTORAGE*/
+    /*START:SCROLL TOP*/
+    .scroll-top {
+        background-color: #228c7d;
+    }
+    /*END:SCROLL TOP*/
+    /*START: Progress circle  */
+    .c100.p100 .fill {
+        border: 0.08em solid $label-text-color;
+    }
+
+    .c100 .bar {
+        border: 0.08em solid $label-text-color;
+    }
+
+    .c100:hover > span {
+        color: $label-text-color;
+    }
+    /*END : Progress circle*/
+    /*STRAT : rage-input */
+    .line-scale-control::-webkit-slider-thumb {
+        background: $side-menu-bg-color !important;
+    }
+
+    .line-scale-control::-moz-range-thumb {
+        background: $side-menu-bg-color !important;
+    }
+    /*END : rage-input */

@@ -1,0 +1,24 @@
+﻿@model ViewModels.Form.ResourceModule
+<form id="form-ResourceModule" name="form-ResourceModule" onkeypress="resourceModule.onformKeypress('form-ResourceModule',event)">
+    @Html.HiddenFor(model => model.ModuleID)
+    <div class="form-row">
+        <div class="form-group col-md-12">
+            @Html.LabelFor(a => a.Name)
+            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control form-control-md" } })
+            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger d-none" })
+        </div>
+        <div class="form-group col-md-12">
+            @Html.LabelFor(a => a.LocalName)
+            @Html.EditorFor(model => model.LocalName, new { htmlAttributes = new { @class = "form-control form-control-md" } })
+            @Html.ValidationMessageFor(model => model.LocalName, "", new { @class = "text-danger d-none" })
+        </div>
+        <div class="form-group col-md-12">
+            @Html.LabelFor(a => a.LatinName)
+            @Html.EditorFor(model => model.LatinName, new { htmlAttributes = new { @class = "form-control form-control-md" } })
+            @Html.ValidationMessageFor(model => model.LatinName, "", new { @class = "text-danger d-none" })
+        </div>
+    </div>
+    <div class="cmd-wrapper">
+        <button type="button" onclick="resourceModule.save('form-ResourceModule')" class="btn btn-success"><i class="fas fa-check"></i> @CoreCommand.CmdSave </button>
+    </div>
+</form>

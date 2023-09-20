@@ -1,0 +1,115 @@
+﻿@*@inject Services.Cart _cart;*@
+@{
+    var UserName = Core.UI.Locals.IsLocal ? Context.GetClaimValue(Core.Security.Extensions.ClaimTypes.LocalName) : Context.GetClaimValue(Core.Security.Extensions.ClaimTypes.LatinName);
+    //var Notification = new Services.Notification(Context.GetCurrentBranchID(), Context.GetCurrentUserID(), Core.UI.Locals.IsLocal ? "a" : "en");
+    //int NotificationCount = Notification.GetNotificationCount();
+    int Ar = 1;
+    int En = 2;
+    string CurrentLang = Context.GetCurrentLanguage();
+    //int CartCount = _cart.UserCartCount();
+    bool EnableChat = Convert.ToBoolean(Config["AppSettings:EnableChatCompetation"]);
+}
+<header class="topheadernav">
+    <div class="theLogo cmd" onclick="location.href='/Home/Index2'">
+        <img src="~/web/imgs/login.jpeg">
+        <div>
+            <div class="f-b">@LoginPage.Dars360Title</div>
+            <div class="f-b">@LoginPage.Dars360Title2</div>
+        </div>
+    </div>
+    <div class="navHeader">
+        <div class="navLinks">
+            <div class="TopnavLink_1">
+                <ul class="theLinkS my-2">
+                    @if (EnableChat)
+                    {
+                        <li>
+                            <a onclick="location.href='/Chat/Chat/Index'" class="Link_">
+                                <img src="~/web/imgs/Group%203660.svg" class="img-fluid">
+                                <span class="counterN bg-orange" id="unSeenMsgCount"></span>
+                            </a>
+                        </li>
+                    }
+                    <li>
+                        <button class="Link_ dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+                            <img src="~/web/imgs/Group%206473.svg" class="img-fluid">
+                            @*@if (NotificationCount > 0)
+                            {
+                                <span class="counterN bg-danger">@NotificationCount</span>
+                            }*@
+                        </button>
+
+                        <div class="dropdown-menu listNotification">
+                           <vc:user-notification is-new-theme="true"></vc:user-notification>
+                        </div>
+                    </li>
+                </ul>
+                <span class="line"></span>
+                <div class="theLinkS2">
+                    @if (@CurrentLang == "ar")
+                    {
+                        <a onclick="changeUILanguage(@En)" class="Link_ langu">
+                            @CoreMessage.EnglishTitle
+                        </a>
+                    }
+                    else
+                    {
+                        <a onclick="changeUILanguage(@Ar)" class="Link_ langu">
+                            @CoreMessage.ArabicTitle
+                        </a>
+                    }
+                    <button class="Link_ dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+                        <img src="~/web/imgs/icons8-gear-50.png" class="img-fluid">
+                    </button>
+                    <div class="dropdown-menu">
+                        <div class="p-2">
+                            <hr class="my-2">
+                            <div>
+                                <a class="dropdown-item" href="~/Account/setting">
+                                    <img src="~/web/imgs/Group%206492.svg" width="17px" height="17px">
+                                    <div class="Chose_">
+                                        <span> @CoreMessage.UserProfile</span>
+                                        @*<i class="fas fa-pen text-success"></i>*@
+                                    </div>
+                                </a>
+                                <a class="dropdown-item" href="/common/Account/ChangePassword">
+                                    <img src="~/web/imgs/Group%206492.svg" width="17px" height="17px">
+                                    <div class="Chose_">
+                                        <span> @CoreMessage.ChangePassword</span>
+                                        @*<i class="fas fa-pen text-success"></i>*@
+                                    </div>
+                                </a>
+                                <a class="dropdown-item" href="/common/Account/ChangeTheme?Theme=blue">
+                                    <i class="fas fa-th fa-menu-item text-theme fa-lg "></i>
+                                    <div class="Chose_">
+                                        <span> @DBResources.IntrnalDashboard.DarsNewStyle</span>
+                                        @*<i class="fas fa-pen text-success"></i>*@
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="themeColor">
+                                <button type="button" onclick="location.href='/common/Account/ChangeTheme?Theme=darsnew-1'" style="background: #4f80fa"></button>
+                                <button type="button" onclick="location.href='/common/Account/ChangeTheme?Theme=darsnew-2'" style="background: #6a1b9a"></button>
+                                <button type="button" onclick="location.href='/common/Account/ChangeTheme?Theme=darsnew-3'" style="background: #363b2a"></button>
+                            </div>
+                        </div>
+                        <div class="footer_dropdown-menu">
+                            <a href="/Common/Account/Logout" onclick="return confirm('@DBResources.Security.ConfirmLogout');" class="font-11"><span>@DBResources.CoreCommand.CmdLogout</span> <span class="fas fa-sign-out-alt"></span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="TopnavLink_2">
+                <div class="imgUser">
+                   
+                        <img src="~/FileStorage/avater.png" />
+                    <aside>
+                        <div>@UserName</div>
+
+                    </aside>
+                </div>
+                <a href="/Common/Account/Logout" onclick="return confirm('@DBResources.Security.ConfirmLogout');" class="btn-main btn-navuser m-0"><span>@CoreCommand.CmdLogout</span> <i class="fas fa-sign-out-alt"></i></a>
+            </div>
+        </div>
+    </div>
+</header>

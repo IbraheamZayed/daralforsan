@@ -1,0 +1,31 @@
+﻿.jstree-wholerow-ul {
+    text-align: left
+}
+.tree-modal-body {
+    height: 247px;
+    overflow-y: auto;
+}
+.model-cmd-footer {
+    padding: 5px;
+    border: 0px solid #ebeaea;
+    background-color: #ffffff;
+    border-radius: 3px;
+    margin: 5px 0px;
+    text-align: center !important;
+    width:100%
+}
+.jstree-anchor {
+    color: #797979 !important
+}
+.jstree-default .jstree-clicked {
+    background: none !important;
+    border-radius: 0px !important;
+    box-shadow: none !important;
+}
+.text-folder {
+    color: #f8ac59;
+}
+
+.jstree-rtl .jstree-anchor > .jstree-themeicon {
+    margin-left: 0px !important;
+}

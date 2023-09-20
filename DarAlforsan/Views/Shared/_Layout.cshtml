@@ -1,0 +1,83 @@
+﻿@{
+    bool IsNew = false;
+   
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> @ViewData["Title"]</title>
+    <partial name="_Styles" />
+    @RenderSection("styles", false)
+    <partial name="_HeadScripts" />
+</head>
+<body class='@(IsNew ?"bodynew":"")'>
+    <partial name="_Spinner" />
+    <div class="wrapper d-none " id="maindiv">
+        <div class="side-menu-wrapper no-print">
+            <div class="logo-wrapper text-center w-100">
+                <div class="logo-inner-wrapper ">
+                    <img src="~/imgs/logo-c.svg" />
+                </div>
+            </div>
+            <div class="today-wrapper latin-font text-center">
+                <span class="today-wrapperDate"> @string.Format("{0:dddd dd-MM-yyyy}", DateTime.Now) </span><br />
+                <span class="today-wrapperDate" id="time" style="direction:ltr">@DateTime.Now.ToLongTimeString()</span>
+                <div class="position-relative">
+                    <input type="text" onkeyup="filterMenu()" placeholder="@CoreMessage.BtnMenuSearch" class="form-control  mt-1 filter-menu-search " tabindex="0" />
+                    <span class="icon_FO"><i class="fas fa-search"></i></span>
+                </div>
+            </div>
+            <div class="nac_BARs sidebar-nav">
+                @await Component.InvokeAsync("SideMenu", new { Area = "" })
+            </div>
+        </div>
+        <div class="page-wrapper">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-sm-12 no-print">
+                            <header class="header-wrapper header-fixed">
+                                <partial name="_Header" />
+                            </header>
+                        </div>
+                        <div class="col-sm-12 rtl no-print">
+                            <div class=" sitemap-wrapper">
+                                <i class="fa fa-check-circle sitemap-icon"></i> @ViewData["Title"]
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="content-wrapper">
+                                @RenderBody()
+                            </div>
+                        </div>
+                        <div class="col-sm-12 no-print">
+                            <footer class="footer-wrapper footer-fixed text-center">
+                                <partial name="_Footer" />
+                            </footer>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="#" id="scrollTop" class="no-print @(Core.UI.Locals.IsLocal ? "scroll-top":"scroll-top-en")">
+        </a>
+    </div>
+    <div id="modalconfirmation" class="modal-confirmation">
+        <form class="modal-content" action="/action_page.php">
+            <div class="container">
+                <p class="my-4 text-center">@CoreMessage.ConfirmOperation</p>
+                <div class="cmd-wrapper">
+                    <button type="button" id="confirmNo" class="btn btn-orange">@CoreCommand.CmdCancel</button>
+                    <button type="button" id="confirmYes" class="btn btn-success my-1">@CoreCommand.CmdOk</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <partial name="_Scripts" />
+    @RenderSection("scripts", required: false)
+    @await Html.PartialAsync("_Modal", new Models.Core.ModalParams { ID = "CKAudioModal", BodyID = "CKAudioContent", Title = CKeditor.AddAudio, Content = "", BackDrop = true, Keyboard = true })
+    @await Html.PartialAsync("_Modal", new Models.Core.ModalParams { ID = "CKImageModal", BodyID = "CKImageContent", Title = CKeditor.AddImage, Content = "", BackDrop = true, Keyboard = true })
+</body>
+</html>

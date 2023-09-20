@@ -1,0 +1,40 @@
+:root {
+    --main: #363b2a;
+    --main2: #e4e4e4;
+    --main3: #363b2a !important;
+    --main4: #a78f3e !important;
+    --main5: #a99234 !important;
+    --main6: #a78f3e !important;
+    /*
+     --main3: #29235C;
+     --white: #ffffff;
+     --gray: #8A8A8A;
+*/
+}
+.folder-theme {
+    color: var(--main);
+}
+.navtopDashbord {
+    background-color: #a78f3e !important;
+}
+    .navtopDashbord .TimeLogin {
+        background-color: var(--main) !important;
+    }
+    .bg-theme {
+        background-color: var(--main);
+    }
+.period-bg{
+    background-color:none !important;
+}
+.day-bg {
+    background-color: none !important;
+}
+.btn-theme {
+    background-color: var(--main);
+}
+.PopoversCard .title_ {
+    background-color: var(--main) !important;
+}
+.cardsLink .card:hover {
+    color: var(--main6) !important;
+}

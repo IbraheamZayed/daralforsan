@@ -1,0 +1,31 @@
+:root {
+    --main: #6a436a;
+    --main2: #c1c1c1;
+    --main3: #488548 !important;
+    --main4: #488548 !important;
+    --main5: #6A5743 !important;
+    --main6: #488548 !important;
+    /*
+     --main3: #29235C;
+     --white: #ffffff;
+     --gray: #8A8A8A;
+*/
+}
+.folder-theme {
+    color: var(--main);
+}
+.bg-theme {
+    background-color: var(--main);
+}
+.period-bg {
+    background-color: none !important;
+}
+.day-bg {
+    background-color: none !important;
+}
+.btn-theme {
+    background-color: var(--main);
+}
+.PopoversCard .title_{
+    background-color:var(--main) !important;
+}

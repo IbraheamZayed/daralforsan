@@ -1,0 +1,48 @@
+﻿@{
+    ViewData["Title"] = DBResources.Resources.ResourcesPageTitle;
+    var direction = Core.UI.Locals.Direction;
+   
+    if (Context.GetCurrentTheme().Contains("darsnew") || string.IsNullOrEmpty(Context.GetCurrentTheme()))
+    {
+        Layout = "~/Views/Shared/_NavMenuLayout2.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+}
+
+<div class="content smooth-trans-v @direction">
+    <div class="list-cmd-wrapper">
+        <button type="button" class="btn btn-info btn-circle" onclick="resource.initAdd()"><i class="fas fa-plus"></i></button>
+        <button type="button" class="btn btn-warning btn-circle" onclick="resource.refreshDatatable()"><i class="fa fa-redo-alt"></i></button>
+        <button type="button" onclick="$('.buttons-excel').click();" class="btn btn-success btn-circle btn-export-to-excel btn-circle"><i class="fas fa-file-excel"></i></button>
+    </div>
+    <table id="list" class="ui celled table" data-page-length="10">
+        <thead>
+            <tr style="font-family:hb !important">
+                <th class="d-none"></th>
+                <th style="cursor:pointer" class="local-font text-center">@DBResources.Resources.Name</th>
+                <th style="cursor:pointer" class="local-font text-center">@DBResources.Resources.LocalName</th>
+                <th style="cursor:pointer" class="local-font text-center">@DBResources.Resources.LatinName</th>
+                <th style="cursor:pointer" class="local-font text-center">@DBResources.Resources.Module</th>
+                <th style="cursor:pointer" class="text-center">@DBResources.CoreCommand.CmdEdit</th>
+                <th style="cursor:pointer" class="text-center">@DBResources.CoreCommand.CmdDelete</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>
+
+@await Html.PartialAsync("_Modal", new Models.Core.ModalParams { ID = "AddResource", BodyID = "divResourceBody", Title = DBResources.Resources.AddEdit, Content = "", BackDrop = true, Keyboard = true, Size = Core.UI.ModalSize.Large })
+
+@section scripts
+{
+    <script src="~/Module/Admin/resource.js"></script>
+    <script>
+        $(document).ready(function () {
+            resource.initDatatable();
+        });
+    </script>
+}

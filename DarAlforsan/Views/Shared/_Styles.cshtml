@@ -1,0 +1,88 @@
+﻿@{
+    var Direction = Core.UI.Locals.Direction;
+    string Theme = "";
+    try
+    {
+        var sss = Context.GetCurrentTheme();
+        if (Context.GetCurrentTheme() == null)
+        {
+            Theme = "blue";
+        }
+        else
+            Theme = !Context.GetCurrentTheme().Contains("darsnew") ? "blue" : Context.GetCurrentTheme();
+    }
+    catch
+    {
+        Theme = "blue";
+    }
+    string StyleVersion = Versioning.Css.GetCurrent(Config);
+}
+
+@*bootstrap*@
+<link rel="stylesheet" href="@("/lib/bootstrap.4.3." + (string.IsNullOrEmpty(Direction) ? "rtl" : Direction) + "/css/bootstrap.min.css?v="+StyleVersion)" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
+
+@*Site*@
+<link rel="stylesheet" href="@("/web/css/"+Theme).css?v=@StyleVersion">
+<link rel="stylesheet" href="~/web/css/style.css?v=@StyleVersion">
+<link rel="stylesheet" href="~/theme/_shared/site.css?v=@StyleVersion">
+<link rel="stylesheet" href="@("/theme/_shared/site." + (string.IsNullOrEmpty(Direction) ? "rtl" : Direction) + ".css?v="+StyleVersion)">
+ 
+@if (Context.GetCurrentTheme()== null)
+ {
+    <link rel="stylesheet" href="@("/theme/" + (string.IsNullOrEmpty(Theme) ? "blue" : Theme) + "/site.css?v="+StyleVersion )" />
+ }
+ else if(!Context.GetCurrentTheme().Contains("darsnew"))
+{
+    @* Theme *@
+    <link rel="stylesheet" href="@("/theme/" + (string.IsNullOrEmpty(Theme) ? "blue" : Theme) + "/site.css?v="+StyleVersion )" />
+}
+
+@*awesome font*@
+<link rel="stylesheet" href="~/lib/fontawesome/css/all.css?v=@StyleVersion">
+
+@* Side Menu - metismenujs *@
+<link rel="stylesheet" href="~/theme/_shared/metismenujs.css?v=@StyleVersion" />
+
+@* TimeLine *@
+<link rel="stylesheet" href="@(Direction=="rtl"?"/theme/_shared/timeline.rtl.css":"/theme/_shared/timeline.ltr.css")" ?v="+@StyleVersion" />
+
+@*Rating*@
+<link rel="stylesheet" href="~/lib/rating/themes/bars-1to10.css?v=@StyleVersion">
+
+@*Select2 AutoComplete*@
+<link href="~/lib/select2/css/select2.min.css?v=@StyleVersion" rel="stylesheet" type="text/css" />
+
+@*toastr Alert*@
+<link href="~/lib/toastr/css/toastr.min.css?v=@StyleVersion" rel="stylesheet" type="text/css" />
+
+@*File-Input*@
+<link href="~/lib/fileinput/css/fileinput.css?v=@StyleVersion" media="all" rel="stylesheet" type="text/css" />
+
+@*JQ Data Table css*@
+@if (Core.UI.Locals.IsLocal)
+{
+    <link rel="stylesheet" href="~/theme/_shared/datatable.rtl.css?v=@StyleVersion" />
+    <link href="~/Module/ShortcutMenu/ShortcutMenu.css?v=@StyleVersion" rel="stylesheet" />
+}
+else
+{
+    <link rel="stylesheet" href="~/theme/_shared/datatable.en.css?v=@StyleVersion" />
+    <link href="~/Module/ShortcutMenu/ShortcutMenu.en.css?v=@StyleVersion" rel="stylesheet" />
+}
+
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css?v=@StyleVersion">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.semanticui.min.css?v=@StyleVersion">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css?v=@StyleVersion">
+
+@* Treeview Js *@
+<link href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.3.8/themes/default/style.min.css" rel="stylesheet" />
+<link href="~/lib/jstree/css/jstree.@(string.IsNullOrEmpty(Direction) ? "rtl" : Direction).css?v=@StyleVersion" rel="stylesheet" />
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.3.0/dropzone.css?v=@StyleVersion" rel="stylesheet" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.3.0/basic.css?v=@StyleVersion" rel="stylesheet" />
+<link href="~/lib/dropzone/dropzone.css?v=@StyleVersion" rel="stylesheet" />
+<link href="~/theme/_shared/on-print.css" rel="stylesheet" />
+<link href="~/Module/confirmation.css" rel="stylesheet" />

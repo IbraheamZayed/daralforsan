@@ -1,0 +1,29 @@
+﻿@model ViewModels.Form.ContactUs
+<form id="form-ContactUs" name="form-ContactUs" onkeypress="contactUs.onformKeypress('form-ContactUs',event)">
+    @Html.HiddenFor(model => model.ID)
+    <div class="form-row">
+        <div class="form-group col-md-12">
+            @Html.LabelFor(a => a.Name)
+            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control form-control-md", @required="required" } })
+            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger d-none" })
+        </div>
+        <div class="form-group col-md-12">
+            @Html.LabelFor(a => a.Email)
+            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control form-control-md" } })
+            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger d-none" })
+        </div>
+        <div class="form-group col-md-12">
+            @Html.LabelFor(a => a.MobileNo)
+            @Html.EditorFor(model => model.MobileNo, new { htmlAttributes = new { @class = "form-control form-control-md" } })
+            @Html.ValidationMessageFor(model => model.MobileNo, "", new { @class = "text-danger d-none" })
+        </div>
+        <div class="form-group col-md-12">
+            @Html.LabelFor(a => a.Message)
+            @Html.TextAreaFor(model => model.Message, new { @class = "form-control form-control-sm local-font", @rows = 4 })
+            @Html.ValidationMessageFor(model => model.Message, "", new { @class = "text-danger  d-none" })
+        </div>
+    </div>
+    <div class="cmd-wrapper">
+        <button type="button" onclick="contactUs.save('form-ContactUs')" class="btn btn-success"><i class="fas fa-check"></i> @CoreCommand.CmdSend </button>
+    </div>
+</form>

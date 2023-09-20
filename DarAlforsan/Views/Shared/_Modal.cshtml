@@ -1,0 +1,19 @@
+﻿@model Models.Core.ModalParams
+@* use data-backdrop="static" if you do not need to close the modal when click outside the modal dialog
+    data-keyboard , if set to true the modal dialog can be closed using esc keyboard key
+*@
+<div class="modal fade @Model.ClassName" id="@Model.ID"  role="dialog" aria-hidden="true" data-backdrop='@(Model.BackDrop.Value?"true":"static")' data-keyboard="@Model.Keyboard.Value.ToString().ToLower()">
+    <div class="modal-dialog modal-dialog-centered @Model.Size">
+        <div class="modal-content">
+            <div class="modal-header msgbox-header">
+                <h5 class="modal-title local-font">
+                    @Model.Title
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" style="margin-left:0px">&times;</button>
+            </div>
+            <div class="modal-body" id="@(Model.BodyID)">
+                @Model.Content
+            </div>
+        </div>
+    </div>
+</div>

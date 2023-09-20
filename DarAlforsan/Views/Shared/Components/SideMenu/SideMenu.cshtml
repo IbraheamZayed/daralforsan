@@ -1,0 +1,154 @@
+﻿@model ViewModels.List.SideMenu
+@{
+    Layout = null;
+}
+<div class="row main-menu" dir="@Core.UI.Locals.Direction">
+    <nav class="sidebar-nav">
+        <ul class="metismenu" id="SideMenu">
+            <li class="bg-menu-theme" title="@CorePageTitle.Home">
+                <a href='@Url.Action("Index", "Home", new { area = "" })' aria-expanded="false">
+                    <span class="fa fa-home sidemenu-icon"></span>
+                    <span class=" menu-item-title ">@CorePageTitle.Home</span>
+                </a>
+            </li>
+             <li class="bg-menu-theme" title="@Slider.PageTitle">
+                <a href='/Basic/Slider/Index' aria-expanded="false">
+                    <span class="fas fa-presentation sidemenu-icon"></span>
+                    <span class="menu-item-title"> @Slider.PageTitle</span>
+                </a>
+            </li>
+            <li class="bg-menu-theme" title="@DBResources.AboutSchool.PageTitle">
+                <a href='/Basic/AboutSchool/Index' aria-expanded="false">
+                    <span class="fas fa-building sidemenu-icon"></span>
+                    <span class="menu-item-title"> @DBResources.AboutSchool.PageTitle</span>
+                </a>
+            </li>
+            <li>
+                <a href='/Basic/SchoolVision/Index' aria-expanded="false">
+                    <span class="fas fa-eye sidemenu-icon"></span>
+                    <span class="menu-item-title">@DBResources.SchoolVision.PageTitle</span>
+                </a>
+            </li>
+            <li>
+                <a href='/Basic/SchoolSystem/Index' aria-expanded="false">
+                    <span class="fas fa-desktop sidemenu-icon"></span>
+                    <span class="menu-item-title">@DBResources.SchoolSystem.PageTitle</span>
+                </a>
+            </li>
+            <li class="bg-menu-theme" title="@DBResources.SocialMedia.PageTitle">
+                <a href='/Basic/SocialMedia/Index' aria-expanded="false">
+                    <span class="fas fa-handshake-alt sidemenu-icon"></span>
+                    <span class="menu-item-title">@DBResources.SocialMedia.PageTitle</span>
+                </a>
+            </li>
+            <li class="bg-menu-theme" title="@DBResources.Statistics.PageTitle">
+                <a href='/Basic/Statistics/Index' aria-expanded="false">
+                    <span class="fad fa-chart-line-down sidemenu-icon"></span>
+                    <span class="menu-item-title">@DBResources.Statistics.PageTitle</span>
+                </a>
+            </li>
+            <li class="bg-menu-theme" title="@DBResources.News.PageTitle">
+                <a href='/Basic/News/Index' aria-expanded="false">
+                    <span class="fas fa-newspaper sidemenu-icon"></span>
+                    <span class="menu-item-title">@DBResources.News.PageTitle</span>
+                </a>
+            </li>
+            <li>
+                <a href='/Basic/SaidAboutUs/Index' aria-expanded="false">
+                    <span class="fas fa-microphone sidemenu-icon"></span>
+                    <span class="menu-item-title">@DBResources.SaidAboutUs.PageTitle</span>
+                </a>
+            </li>
+            <li>
+                <a href='/Basic/SchoolFruits/Index' aria-expanded="false">
+                    <span class="fas fa-leaf sidemenu-icon"></span>
+                    <span class="menu-item-title">@DBResources.SchoolFruits.PageTitle</span>
+                </a>
+            </li>
+            <li>
+                <a href='/Basic/SchoolFruitsDetails/Index' aria-expanded="false">
+                    <span class="fas fa-leaf sidemenu-icon"></span>
+                    <span class="menu-item-title">@DBResources.SchoolFruits.DetailsPageTitle</span>
+                </a>
+            </li>                       
+        </ul>
+    </nav>
+</div>
+
+<div class="row burger-menu" dir="@Core.UI.Locals.Direction">
+    <nav class="sidebar-nav is-hoverable">
+        <ul id="BurgerMenu" class="metismenu">
+            <li>
+                <a> <i class="fas fa-bars fa-lg w-color burger-menu-icon"></i></a>
+                <ul>
+                    <li>
+                        <a href='@Url.Action("Index", "Home", new { area = "" })' aria-expanded="false">
+                            <span class="fa fa-home sidemenu-icon"></span>
+                            <span class="menu-item-title"> @CorePageTitle.Home</span>
+                        </a>
+                    </li>
+                     <li>
+                        <a href='/Basic/Slider/Index' aria-expanded="false">
+                            <span class="fas fa-presentation sidemenu-icon"></span>
+                            <span class="menu-item-title"> @Slider.PageTitle</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href='/Basic/AboutSchool/Index' aria-expanded="false">
+                            <span class="fas fa-building sidemenu-icon"></span>
+                            <span class="menu-item-title">@DBResources.AboutSchool.PageTitle</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href='/Basic/SchoolVision/Index' aria-expanded="false">
+                            <span class="fas fa-eye sidemenu-icon"></span>
+                            <span class="menu-item-title">@DBResources.SchoolVision.PageTitle</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href='/Basic/SchoolSystem/Index' aria-expanded="false">
+                            <span class="fas fa-desktop sidemenu-icon"></span>
+                            <span class="menu-item-title">@DBResources.SchoolSystem.PageTitle</span>
+                        </a>
+                    </li>
+                    <li class="bg-menu-theme" title="@DBResources.SocialMedia.PageTitle">
+                        <a href='/Basic/SocialMedia/Index' aria-expanded="false">
+                            <span class="fas fa-handshake-alt sidemenu-icon"></span>
+                            <span class="menu-item-title">@DBResources.SocialMedia.PageTitle</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href='/Basic/Statistics/Index' aria-expanded="false">
+                            <span class="fad fa-chart-line-down sidemenu-icon"></span>
+                            <span class="menu-item-title">@DBResources.Statistics.PageTitle</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href='/Basic/News/Index' aria-expanded="false">
+                            <span class="fas fa-newspaper sidemenu-icon"></span>
+                            <span class="menu-item-title">@DBResources.News.PageTitle</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href='/Basic/SaidAboutUs/Index' aria-expanded="false">
+                            <span class="fas fa-microphone sidemenu-icon"></span>
+                            <span class="menu-item-title">@DBResources.SaidAboutUs.PageTitle</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href='/Basic/SchoolFruits/Index' aria-expanded="false">
+                            <span class="fas fa-leaf sidemenu-icon"></span>
+                            <span class="menu-item-title">@DBResources.SchoolFruits.PageTitle</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href='/Basic/SchoolFruitsDetails/Index' aria-expanded="false">
+                            <span class="fas fa-leaf sidemenu-icon"></span>
+                            <span class="menu-item-title">@DBResources.SchoolFruits.DetailsPageTitle</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</div>

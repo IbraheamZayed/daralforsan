@@ -1,0 +1,72 @@
+ body{
+     direction: ltr;
+     text-align: left;
+ }
+
+
+
+.oute_img_vis > div img {
+    left: unset;
+    right: 15px;
+}
+
+.oute_img_vis > div::after {
+    right: unset;
+    left: -30px
+}
+
+
+.package .info li:after {
+    right: unset;
+    left: 0
+}
+
+.text-left{
+    text-align: right !important
+}
+
+.title_F:after {
+    right: unset;
+    left: -10px;
+}
+
+
+.back-to-top {
+    left: unset;
+    right: 20px
+}
+
+
+.icon_whatsapp {
+    right: unset;
+    left: 30px
+}
+
+ /*Extra small devices (portrait phones, less than 576px)*/
+ @media (max-width: 575.98px) {
+
+
+ }
+
+ /*Small devices (landscape phones, less than 768px)*/
+ @media (max-width: 767.98px) {
+
+}
+
+ /*Medium devices (tablets, less than 992px)*/
+
+ @media (max-width: 991.98px) {
+ 
+
+     .nav_bar {
+         right: unset;
+         left: 0;
+         top: 0;
+         transform: translateX(-100%);
+     }
+
+
+ }
+
+ /*Large devices (desktops, less than 1200px)*/
+ @media (max-width: 1199.98px) {}

@@ -1,0 +1,114 @@
+﻿@*@model ViewModels.List.HomeVM*@
+@{
+    var Direction = Core.UI.Locals.Direction;
+    ViewData["Title"] = CorePageTitle.Home;
+    Layout = null;
+    string ScriptVersion = Versioning.Js.GetCurrent(Config);
+    string StyleVersion = Versioning.Css.GetCurrent(Config);
+    var UserName = Core.UI.Locals.IsLocal ? Context.GetClaimValue(Core.Security.Extensions.ClaimTypes.LocalName) : Context.GetClaimValue(Core.Security.Extensions.ClaimTypes.LatinName);
+    string Lang = Core.UI.Locals.IsLocal ? "ar" : "en";
+    string Theme = "";
+    try
+    {
+        Theme = Theme = !Context.GetCurrentTheme().Contains("darsnew") ? "darsnew-1" : Context.GetCurrentTheme();
+    }
+    catch
+    {
+        Theme = "darsnew-1";
+    }
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="~/web/css/bootstrap.min.css?v=@StyleVersion">
+    <link rel="stylesheet" href="~/web/plugens/news/style.min.css?v=@StyleVersion" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
+    <link rel="stylesheet" href="~/web/css/all.min.css?v=@StyleVersion">
+    <link rel="stylesheet" href="@("/web/css/"+Theme).css?v=@StyleVersion">
+    <link rel="stylesheet" href="~/web/css/style.css?v=@StyleVersion">
+    @*awesome font*@
+    <link rel="stylesheet" href="~/lib/fontawesome/css/all.css?v=@StyleVersion">
+    <link rel="stylesheet" href="@(Direction=="rtl"?" ":"/web/css/style-ltr.css?v="+@StyleVersion)" />
+    <title> @ViewData["Title"]</title>
+    <link rel="icon" href="~/web/imgs/login.jpeg" type="image/x-icon" />
+    <style>
+        .container {
+            max-width: 95% !important;
+        }
+    </style>
+</head>
+<body>
+    <partial name="_Spinner" />
+    <partial name="_Header2" />
+    <div class="body-content">
+        <div class="container">
+            <div class="py-3">
+               @* @await Component.InvokeAsync("Newsticker")
+                @await Component.InvokeAsync("AudioAds")*@
+                <div class="row justify-content-center mb-4">
+                    @*@await Component.InvokeAsync("LastNews1", new { ForHome = true })*@
+                    <div class="col-lg-8">
+                        <div class="cardIndex pt-4 pb-3">
+                            <div class="m-0 row flex-column justify-content-between align-items-center flex-grow-1">
+                                <div class="col-lg-12">
+                                    <div class="cardsLink">
+                                        @*<vc:base-menu is-list-items="false" is-from-home="true"></vc:base-menu>*@
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @*@await Component.InvokeAsync("UserAds")
+                @await Component.InvokeAsync("VideoAds")*@
+            </div>
+        </div>
+    </div>
+    <script src="~/web/js/jquery-3.6.0.min.js?v=@ScriptVersion"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js?v=@ScriptVersion"></script>
+    <script src="~/web/js/popper.min.js?v=@ScriptVersion"></script>
+    <script src="~/web/js/bootstrap.min.js?v=@ScriptVersion"></script>
+    <script src="~/js/date_format.js?v=@ScriptVersion"></script>
+    <script src="~/js/utils.js?v=@ScriptVersion"></script>
+    <script src="~/web/plugens/news/acmeticker.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+    <script>
+        $("#LoginTime").text(`${localStorage.getItem('LoginTime')}`);
+        $("#DurationTime").text(`${DateFormat.getDiffMinutes(new Date(), localStorage.getItem('LoginDateTime'))}`);
+        $("#current-time").text(`${DateFormat.getTime(new Date(), "@Lang")}`);
+        $(".dropdown-item .Chose_").on("click", function (e) {
+            e.stopPropagation();
+        });
+
+        $('.my-news-ticker').AcmeTicker({
+            type: 'marquee',
+            direction: 'right',
+            speed: 0.05,
+            controls: {
+                toggle: $('.acme-news-ticker-pause'),
+            }
+        });
+
+        Fancybox.bind("[data-fancybox]", {
+            // Your custom options
+        });
+        var swiper = new Swiper(".mySwiper", {
+            direction: "vertical",
+            slidesPerView: 2,
+            loop: true,
+            spaceBetween: 5,
+            autoplay: {
+                delay: 6000,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+        });
+    </script>
+</body>
+</html>
